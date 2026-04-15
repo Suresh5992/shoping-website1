@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Order History</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container" style="margin-top:50px;max-width:900px">
+  <h2>Order History</h2>
+  <p class="text-muted">Your past orders (demo).</p>
+
+  <div id="orders"></div>
+
+</div>
+
+<script>
+function renderOrders(){
+  var out = document.getElementById('orders');
+  var orders = [];
+  try{ orders = JSON.parse(localStorage.getItem('orders')||'[]'); }catch(e){ orders = []; }
+  if(!orders.length){
+    out.innerHTML = '<div class="alert alert-info">No orders found.</div>';
+    return;
+  }
+
+  var html = '';
+  orders.forEach(function(o){
+    html += '<div class="panel panel-default" style="margin-top:12px">';
+    html += '<div class="panel-heading"><strong>Order '+o.id+'</strong> <span class="pull-right">'+(new Date(o.date)).toLocaleString()+'</span></div>';
+    html += '<div class="panel-body">';
+    html += '<p><strong>Total:</strong> ₹ '+o.total+'</p>';
+    if(o.shipping){
+      html += '<p><strong>Shipping:</strong> '+(o.shipping.name||'')+' &nbsp; '+(o.shipping.mobile||'')+'<br>'+(o.shipping.address||'')+'</p>';
+    }
+    html += '<table class="table table-condensed"><thead><tr><th>Product</th><th>Qty</th><th class="text-right">Price</th></tr></thead><tbody>';
+    (o.products||[]).forEach(function(p){
+      html += '<tr><td>'+ (p.name||'') +'</td><td>'+ (p.quantity||1) +'</td><td class="text-right">₹ '+((p.price||0)*(p.quantity||1)) +'</td></tr>';
+    });
+    html += '</tbody></table>';
+    html += '</div></div>';
+  });
+  out.innerHTML = html;
+}
+
+renderOrders();
+</script>
+
+</body>
+</html>
