@@ -7,12 +7,25 @@ const app = express();
 app.use(bodyParser.json());
 
 // ---------------- DB CONNECTION ----------------
-const pool = new Pool({
+const dbConfig = {
   user: process.env.DB_USER || process.env.POSTGRES_USER || 'postgres',
   host: process.env.DB_HOST || process.env.POSTGRES_HOST || 'postgres',
   database: process.env.DB_NAME || process.env.POSTGRES_DB || 'bigstore',
   password: process.env.DB_PASSWORD || process.env.POSTGRES_PASSWORD || 'password',
   port: parseInt(process.env.DB_PORT || process.env.POSTGRES_PORT || '5432', 10),
+};
+
+console.log('DB config:', {
+  user: dbConfig.user,
+  host: dbConfig.host,
+  database: dbConfig.database,
+  port: dbConfig.port,
+});
+
+const pool = new Pool(dbConfig);
+
+pool.on('error', (err) => {
+  console.error('Unexpected PostgreSQL error on idle client', err);
 });
 
 const DB_CONNECT_RETRIES = parseInt(process.env.DB_CONNECT_RETRIES || '12', 10);
@@ -87,15 +100,16 @@ app.post('/api/send-otp', async (req, res) => {
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
   const expires_at = Date.now() + 5 * 60 * 1000;
 
-  try {
-    await pool.query(
-      `INSERT INTO otps (mobile, otp, expires_at)
+  const insertOtpQuery = `INSERT INTO otps (mobile, otp, expires_at)
        VALUES ($1, $2, $3)
        ON CONFLICT (mobile)
        DO UPDATE SET otp = EXCLUDED.otp,
-                     expires_at = EXCLUDED.expires_at`,
-      [mobile, otp, expires_at]
-    );
+                     expires_at = EXCLUDED.expires_at`;
+
+  console.log('[SEND OTP] query params:', { mobile, otp, expires_at });
+
+  try {
+    await pool.query(insertOtpQuery, [mobile, otp, expires_at]);
 
     console.log('[OTP SAVED]', mobile, otp);
 

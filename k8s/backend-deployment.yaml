@@ -20,6 +20,7 @@ spec:
       containers:
       - name: backend
         image: suresh628/shop-backend:v2
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
 
