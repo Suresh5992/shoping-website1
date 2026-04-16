@@ -140,6 +140,8 @@ app.post('/api/verify-otp', async (req, res) => {
 
     const rec = r.rows[0];
 
+    console.log('[VERIFY OTP] mobile=', mobile, 'expected=', rec.otp, 'received=', otp, 'expires_at=', rec.expires_at);
+
     // expiry check
     const expiresAt = rec.expires_at instanceof Date
       ? rec.expires_at.getTime()
@@ -151,7 +153,7 @@ app.post('/api/verify-otp', async (req, res) => {
     }
 
     // match check
-    if (rec.otp !== otp) {
+    if (rec.otp !== String(otp)) {
       return res.status(400).json({ error: 'verify_failed' });
     }
 
@@ -161,18 +163,24 @@ app.post('/api/verify-otp', async (req, res) => {
     // save order
     if (order && order.id) {
       try {
+        const payload = {
+          ...order,
+          verified_at: new Date().toISOString(),
+          verified_by: mobile,
+        };
+
         await pool.query(
           `INSERT INTO orders (id, payload, created_at)
            VALUES ($1, $2, NOW())
            ON CONFLICT (id) DO NOTHING`,
-          [order.id, JSON.stringify(order)]
+          [order.id, JSON.stringify(payload)]
         );
       } catch (e) {
         console.error('save order error:', e);
       }
     }
 
-    return res.json({ ok: true });
+    return res.json({ ok: true, orderId: order?.id || null });
 
   } catch (e) {
     console.error('verify-otp error', e);
@@ -209,6 +217,17 @@ app.post('/api/send-email', async (req, res) => {
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: 'send_failed' });
+  }
+});
+
+// ---------------- ORDERS LIST ----------------
+app.get('/api/orders', async (_req, res) => {
+  try {
+    const result = await pool.query('SELECT id, payload, created_at FROM orders ORDER BY created_at DESC LIMIT 100');
+    return res.json({ ok: true, orders: result.rows });
+  } catch (err) {
+    console.error('orders fetch error', err);
+    return res.status(500).json({ error: 'orders_fetch_failed' });
   }
 });
 
