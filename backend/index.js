@@ -55,6 +55,24 @@ async function initializeDatabase() {
     );
   `);
 
+  // If the column exists as TIMESTAMP from an older schema, migrate it to BIGINT epoch millis.
+  await pool.query(`
+    DO $$
+    BEGIN
+      IF EXISTS (
+        SELECT 1 FROM information_schema.columns
+        WHERE table_name = 'otps'
+          AND column_name = 'expires_at'
+          AND data_type <> 'bigint'
+      ) THEN
+        ALTER TABLE otps
+        ALTER COLUMN expires_at TYPE BIGINT
+        USING extract(epoch FROM expires_at) * 1000;
+      END IF;
+    END
+    $$;
+  `);
+
   console.log("✅ Tables ready");
 }
 
@@ -110,7 +128,11 @@ app.post('/api/verify-otp', async (req, res) => {
     const rec = r.rows[0];
 
     // expiry check
-    if (Date.now() > parseInt(rec.expires_at, 10)) {
+    const expiresAt = rec.expires_at instanceof Date
+      ? rec.expires_at.getTime()
+      : Number(rec.expires_at);
+
+    if (!Number.isFinite(expiresAt) || Date.now() > expiresAt) {
       await pool.query('DELETE FROM otps WHERE mobile=$1', [mobile]);
       return res.status(400).json({ error: 'expired' });
     }
