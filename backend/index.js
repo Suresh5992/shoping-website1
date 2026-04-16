@@ -56,7 +56,7 @@ async function initializeDatabase() {
     CREATE TABLE IF NOT EXISTS otps (
       mobile VARCHAR PRIMARY KEY,
       otp VARCHAR(6),
-      expires_at BIGINT
+      expires_at TIMESTAMP
     );
   `);
 
@@ -68,7 +68,7 @@ async function initializeDatabase() {
     );
   `);
 
-  // If the column exists as TIMESTAMP from an older schema, migrate it to BIGINT epoch millis.
+  // If the column exists as BIGINT from an older schema, migrate it to TIMESTAMP.
   await pool.query(`
     DO $$
     BEGIN
@@ -76,11 +76,11 @@ async function initializeDatabase() {
         SELECT 1 FROM information_schema.columns
         WHERE table_name = 'otps'
           AND column_name = 'expires_at'
-          AND data_type <> 'bigint'
+          AND data_type = 'bigint'
       ) THEN
         ALTER TABLE otps
-        ALTER COLUMN expires_at TYPE BIGINT
-        USING extract(epoch FROM expires_at) * 1000;
+        ALTER COLUMN expires_at TYPE TIMESTAMP
+        USING to_timestamp(expires_at / 1000.0);
       END IF;
     END
     $$;
@@ -98,18 +98,17 @@ app.post('/api/send-otp', async (req, res) => {
   }
 
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
-  const expires_at = Date.now() + 5 * 60 * 1000;
 
   const insertOtpQuery = `INSERT INTO otps (mobile, otp, expires_at)
-       VALUES ($1, $2, $3)
+       VALUES ($1, $2, NOW() + INTERVAL '5 minutes')
        ON CONFLICT (mobile)
        DO UPDATE SET otp = EXCLUDED.otp,
                      expires_at = EXCLUDED.expires_at`;
 
-  console.log('[SEND OTP] query params:', { mobile, otp, expires_at });
+  console.log('[SEND OTP] query params:', { mobile, otp });
 
   try {
-    await pool.query(insertOtpQuery, [mobile, otp, expires_at]);
+    await pool.query(insertOtpQuery, [mobile, otp]);
 
     console.log('[OTP SAVED]', mobile, otp);
 
@@ -144,7 +143,7 @@ app.post('/api/verify-otp', async (req, res) => {
     // expiry check
     const expiresAt = rec.expires_at instanceof Date
       ? rec.expires_at.getTime()
-      : Number(rec.expires_at);
+      : Date.parse(rec.expires_at);
 
     if (!Number.isFinite(expiresAt) || Date.now() > expiresAt) {
       await pool.query('DELETE FROM otps WHERE mobile=$1', [mobile]);
