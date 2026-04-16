@@ -15,30 +15,48 @@ const pool = new Pool({
   port: parseInt(process.env.DB_PORT || process.env.POSTGRES_PORT || '5432', 10),
 });
 
-// ---------------- CREATE TABLES ----------------
-(async () => {
-  try {
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS otps (
-        mobile VARCHAR PRIMARY KEY,
-        otp VARCHAR(6),
-        expires_at BIGINT
-      );
-    `);
+const DB_CONNECT_RETRIES = parseInt(process.env.DB_CONNECT_RETRIES || '12', 10);
+const DB_CONNECT_DELAY_MS = parseInt(process.env.DB_CONNECT_DELAY_MS || '5000', 10);
 
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS orders (
-        id VARCHAR PRIMARY KEY,
-        payload JSONB,
-        created_at TIMESTAMP DEFAULT NOW()
-      );
-    `);
-
-    console.log("✅ Tables ready");
-  } catch (err) {
-    console.error("DB init error:", err);
+async function waitForDatabase() {
+  for (let attempt = 1; attempt <= DB_CONNECT_RETRIES; attempt++) {
+    try {
+      await pool.query('SELECT 1');
+      console.log(`✅ Database connected on attempt ${attempt}`);
+      return;
+    } catch (err) {
+      const message = err.message || err.toString();
+      console.warn(`Database connect attempt ${attempt} failed: ${message}`);
+      if (attempt === DB_CONNECT_RETRIES) {
+        throw err;
+      }
+      await new Promise((resolve) => setTimeout(resolve, DB_CONNECT_DELAY_MS));
+    }
   }
-})();
+}
+
+// ---------------- CREATE TABLES ----------------
+async function initializeDatabase() {
+  await waitForDatabase();
+
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS otps (
+      mobile VARCHAR PRIMARY KEY,
+      otp VARCHAR(6),
+      expires_at BIGINT
+    );
+  `);
+
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS orders (
+      id VARCHAR PRIMARY KEY,
+      payload JSONB,
+      created_at TIMESTAMP DEFAULT NOW()
+    );
+  `);
+
+  console.log("✅ Tables ready");
+}
 
 // ---------------- SEND OTP ----------------
 app.post('/api/send-otp', async (req, res) => {
@@ -159,6 +177,25 @@ app.post('/api/send-email', async (req, res) => {
   }
 });
 
+// ---------------- HEALTH CHECK ----------------
+app.get('/healthz', async (_req, res) => {
+  try {
+    await pool.query('SELECT 1');
+    return res.json({ ok: true });
+  } catch (err) {
+    console.error('healthz error', err);
+    return res.status(503).json({ ok: false, error: 'db_unavailable' });
+  }
+});
+
 // ---------------- START SERVER ----------------
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log('🚀 Big Store API running on port', port));
+
+initializeDatabase()
+  .then(() => {
+    app.listen(port, () => console.log('🚀 Big Store API running on port', port));
+  })
+  .catch((err) => {
+    console.error('Failed to start server because database initialization failed:', err);
+    process.exit(1);
+  });
