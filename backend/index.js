@@ -8,11 +8,11 @@ app.use(bodyParser.json());
 
 // ---------------- DB CONNECTION ----------------
 const pool = new Pool({
-  user: 'postgres',
-  host: process.env.DB_HOST || 'postgres',
-  database: 'bigstore',
-  password: process.env.DB_PASSWORD || 'password',
-  port: 5432,
+  user: process.env.DB_USER || process.env.POSTGRES_USER || 'postgres',
+  host: process.env.DB_HOST || process.env.POSTGRES_HOST || 'postgres',
+  database: process.env.DB_NAME || process.env.POSTGRES_DB || 'bigstore',
+  password: process.env.DB_PASSWORD || process.env.POSTGRES_PASSWORD || 'password',
+  port: parseInt(process.env.DB_PORT || process.env.POSTGRES_PORT || '5432', 10),
 });
 
 // ---------------- CREATE TABLES ----------------
@@ -49,7 +49,7 @@ app.post('/api/send-otp', async (req, res) => {
   }
 
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
-  const expires_at = new Date(Date.now() + 5 * 60 * 1000);
+  const expires_at = Date.now() + 5 * 60 * 1000;
 
   try {
     await pool.query(
