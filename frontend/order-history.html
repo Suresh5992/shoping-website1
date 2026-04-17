@@ -18,7 +18,21 @@
 </div>
 
 <script>
+function requireLogin(){
+  var currentUser = null;
+  try { currentUser = JSON.parse(localStorage.getItem('currentUser')||'null'); } catch(e) { currentUser = null; }
+  if(!currentUser || !currentUser.email){
+    var out = document.getElementById('orders');
+    out.innerHTML = '<div class="alert alert-warning">Please <a href="login.html">login</a> or <a href="register.html">register</a> to view your order history.</div>';
+    return false;
+  }
+  return true;
+}
+
 function renderOrders(){
+  if(!requireLogin()){
+    return;
+  }
   var out = document.getElementById('orders');
   var orders = [];
   try{ orders = JSON.parse(localStorage.getItem('orders')||'[]'); }catch(e){ orders = []; }
