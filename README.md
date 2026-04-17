@@ -2,7 +2,14 @@
 
 ## Overview
 
-This repository contains a simple ecommerce-style demo with a static frontend and a Node.js backend API. The app uses PostgreSQL for OTP and order persistence.
+This repository contains a simple ecommerce-style demo with a static frontend and a Node.js backend API. The app uses PostgreSQL for OTP verification and order persistence.
+
+The current setup includes enhancements for a production-style experience, such as:
+
+- Frontend footer version labels for `frontend` and `backend`
+- A richer success page with live production badge, animated product image cards, promo blocks, and upcoming feature teasers
+- Order history access restricted to signed-in users only
+- Cart and price display converted to Indian Rupees (`₹`)
 
 ## Repository structure
 
