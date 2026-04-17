@@ -4,58 +4,118 @@
   <title>Success</title>
   <link rel="stylesheet" href="css/bootstrap.css">
   <style>
-    body { background: #f7f9fc; }
-    .success-box { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px 15px; }
-    .success-title { margin-top: 30px; color: #198754; animation: fadeInDown .8s ease; }
-    .success-subtitle { color: #495057; margin: 15px 0 35px; font-size: 1.05rem; }
-    .success-images { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 30px; }
-    .success-card { width: 170px; padding: 14px; border-radius: 22px; background: #ffffff; border: 1px solid rgba(0,0,0,.06); box-shadow: 0 18px 35px rgba(0,0,0,.08); text-align: center; animation: floatCard 3s ease-in-out infinite; }
-    .success-card:nth-child(2) { animation-delay: .2s; }
-    .success-card:nth-child(3) { animation-delay: .4s; }
-    .success-card img { max-width: 100%; border-radius: 16px; margin-bottom: 10px; }
-    .success-card p { margin: 0; font-weight: 600; color: #343a40; }
-    .live-badge { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; background: #0d6efd; color: #fff; padding: .45rem .95rem; border-radius: 999px; font-size: .95rem; box-shadow: 0 15px 35px rgba(13,110,253,.18); }
-    .footer-info { text-align: center; margin-top: 45px; color: #6c757d; font-size: .95rem; }
-    .footer-info strong { color: #212529; }
-    .footer-info .badge-env { display: inline-block; background: #198754; color: #fff; padding: .28rem .7rem; border-radius: 999px; margin-left: .5rem; font-size: .85rem; vertical-align: middle; }
+    body { background: #eef4fb; color: #212529; }
+    .success-box { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px 20px; }
+    .badge-pill { display: inline-flex; align-items: center; gap: .5rem; background: #0d6efd; color: #fff; padding: .45rem 1rem; border-radius: 999px; box-shadow: 0 18px 35px rgba(13,110,253,.18); margin-bottom: 22px; font-weight: 600; }
+    .badge-pill span { background: rgba(255,255,255,.18); padding: .2rem .65rem; border-radius: 999px; font-size: .85rem; }
+    .success-top { max-width: 760px; width: 100%; text-align: center; animation: fadeInUp .8s ease; }
+    .success-icon { width: 78px; height: 78px; line-height: 78px; margin: 0 auto 20px; border-radius: 50%; background: #198754; color: #fff; font-size: 2.2rem; box-shadow: 0 24px 40px rgba(25,135,84,.22); }
+    .success-title { font-size: 3rem; margin: 0 0 18px; color: #198754; }
+    .success-subtitle { font-size: 1.05rem; color: #495057; margin-bottom: 30px; line-height: 1.75; }
+    .btn-primary { padding: .9rem 2rem; font-size: 1.05rem; border-radius: 50px; }
+    .success-images { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin: 35px auto 32px; max-width: 980px; }
+    .success-card { width: 220px; min-height: 250px; padding: 18px; border-radius: 26px; background: linear-gradient(180deg, #fff 0%, #f8fbff 100%); border: 1px solid rgba(0,0,0,.06); box-shadow: 0 24px 48px rgba(15,23,42,.08); text-align: center; position: relative; overflow: hidden; }
+    .success-card::before { content: ''; position: absolute; width: 120px; height: 120px; background: rgba(13,110,253,.08); border-radius: 50%; top: -22px; right: -28px; }
+    .success-card:nth-child(1) { animation: floatCard 4s ease-in-out infinite; }
+    .success-card:nth-child(2) { animation: floatCard 4s ease-in-out infinite .2s; }
+    .success-card:nth-child(3) { animation: floatCard 4s ease-in-out infinite .4s; }
+    .success-card img { max-width: 100%; border-radius: 18px; margin-bottom: 14px; box-shadow: 0 18px 28px rgba(15,23,42,.08); }
+    .success-card p { margin: 0; font-size: 1rem; font-weight: 700; color: #0f172a; }
+    .promo-section { width: 100%; max-width: 980px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 28px; }
+    .promo-card { background: #fff; border-radius: 28px; padding: 28px 22px; border: 1px solid rgba(15,23,42,.08); box-shadow: 0 28px 60px rgba(15,23,42,.05); position: relative; overflow: hidden; }
+    .promo-card::after { content: ''; position: absolute; width: 140px; height: 140px; border-radius: 50%; background: rgba(13,110,253,.08); top: -40px; right: -40px; }
+    .promo-card h3 { margin-top: 0; font-size: 1.25rem; color: #0f172a; }
+    .promo-card p { color: #4b5563; margin: .85rem 0 0; line-height: 1.7; }
+    .promo-tag { display: inline-block; margin: 12px 0 20px; padding: .55rem 1rem; border-radius: 999px; font-weight: 700; background: #f8fafc; color: #0d6efd; }
+    .offer-line { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 22px; }
+    .offer-line span { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: #eff6ff; color: #0d6efd; font-weight: 700; }
+    .feature-section { width: 100%; max-width: 980px; margin-top: 42px; text-align: center; }
+    .feature-section h2 { font-size: 2rem; color: #0f172a; margin-bottom: 14px; }
+    .feature-section p { color: #4b5563; max-width: 720px; margin: 0 auto 26px; line-height: 1.75; }
+    .feature-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .feature-item { background: #ffffff; border-radius: 24px; padding: 22px; box-shadow: 0 18px 34px rgba(15,23,42,.06); border: 1px solid rgba(15,23,42,.05); text-align: left; position: relative; overflow: hidden; }
+    .feature-item::before { content: ''; position: absolute; width: 90px; height: 90px; border-radius: 50%; background: rgba(16,185,129,.08); top: -18px; left: -18px; }
+    .feature-item h4 { margin: 0 0 10px; font-size: 1.1rem; color: #0f172a; }
+    .feature-item p { margin: 0; color: #475569; line-height: 1.7; }
+    .footer-info { text-align: center; margin-top: 48px; color: #64748b; font-size: 0.95rem; }
+    .footer-info strong { color: #0f172a; }
+    .footer-info .badge-env { display: inline-block; background: #22c55e; color: #fff; padding: .28rem .72rem; border-radius: 999px; margin-left: .5rem; font-size: .84rem; vertical-align: middle; }
     @keyframes floatCard { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 576px) { .success-title { font-size: 2.4rem; } .success-card { width: 100%; } }
   </style>
 </head>
 
 <body>
 
 <div class="container text-center success-box">
-  <span class="live-badge">Live Production Site</span>
+  <div class="badge-pill">Live Production Site <span>Production</span></div>
 
-  <h1 class="success-title">
-    ✅ Order Placed Successfully
-  </h1>
-
-  <p class="success-subtitle">Thanks for shopping with us! Your order is now confirmed and we are preparing it for delivery.</p>
+  <div class="success-top">
+    <div class="success-icon">✔</div>
+    <h1 class="success-title">Order Placed Successfully</h1>
+    <p class="success-subtitle">Thank you for shopping with us! Your order is confirmed and will arrive soon. Keep an eye on your email for delivery updates.</p>
+    <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+  </div>
 
   <div class="success-images">
     <div class="success-card">
-      <img src="images/ba.jpg" alt="Quality products">
-      <p>Quality Products</p>
+      <img src="images/ba1.jpg" alt="Fresh groceries">
+      <p>Fresh Groceries</p>
     </div>
     <div class="success-card">
-      <img src="images/co.jpg" alt="Fast delivery">
+      <img src="images/co2.jpg" alt="Fast delivery">
       <p>Fast Delivery</p>
     </div>
     <div class="success-card">
-      <img src="images/ki.jpg" alt="Happy shopping">
-      <p>Happy Shopping</p>
+      <img src="images/ki1.jpg" alt="Awesome deals">
+      <p>Awesome Deals</p>
     </div>
   </div>
 
-  <a href="index.html" class="btn btn-primary py-2 px-4">
-    Continue Shopping
-  </a>
+  <div class="promo-section">
+    <div class="promo-card">
+      <span class="promo-tag">Save 20%</span>
+      <h3>Special Discount Offer</h3>
+      <p>Use code <strong>THANKYOU20</strong> on your next purchase and get 20% off on selected household essentials.</p>
+      <div class="offer-line"><span>✓</span><span>Instant coupon activated</span></div>
+    </div>
+    <div class="promo-card">
+      <span class="promo-tag">New</span>
+      <h3>Upcoming Launches</h3>
+      <p>Watch out for new weekly collections, premium grocery bundles, and express delivery options coming soon.</p>
+      <div class="offer-line"><span>✓</span><span>Fresh arrivals every week</span></div>
+    </div>
+    <div class="promo-card">
+      <span class="promo-tag">Exclusive</span>
+      <h3>Member Rewards</h3>
+      <p>Sign in to unlock reward points, early access to sales, and VIP offers on top brands.</p>
+      <div class="offer-line"><span>✓</span><span>Earn points on every order</span></div>
+    </div>
+  </div>
+
+  <div class="feature-section">
+    <h2>What’s Next?</h2>
+    <p>We are constantly improving your shopping experience. Expect smarter offers, better delivery windows, and new product launches every month.</p>
+
+    <div class="feature-list">
+      <div class="feature-item">
+        <h4>Weekly Flash Sales</h4>
+        <p>Catch limited-time deals on groceries and home essentials with massive savings.</p>
+      </div>
+      <div class="feature-item">
+        <h4>New Product Drops</h4>
+        <p>Discover new brands, fresh snacks, and premium items added to the store frequently.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Faster Tracking</h4>
+        <p>Track orders in real time and get accurate delivery alerts directly on your phone.</p>
+      </div>
+    </div>
+  </div>
 
   <div class="footer-info">
-    Frontend: <strong>suresh628/shop-frontend:v20</strong> |
-    Backend: <strong>suresh628/shop-backend:v20</strong>
+    Frontend: <strong>suresh628/shop-frontend:v20</strong> | Backend: <strong>suresh628/shop-backend:v20</strong>
     <span class="badge-env">Production</span>
   </div>
 </div>
