@@ -19,6 +19,7 @@
       classCheckoutCart: 'my-cart-checkout',
       affixCartIcon: true,
       showCheckoutModal: true,
+      currencySymbol: '₹',
       clickOnAddToCart: function($addTocart) { },
       clickOnCartIcon: function($cartIcon, products, totalPrice, totalQuantity) { },
       checkoutCart: function(products, totalPrice, totalQuantity) { },
@@ -212,9 +213,9 @@
           '<tr title="' + this.summary + '" data-id="' + this.id + '" data-price="' + this.price + '">' +
           '<td class="text-center" style="width: 30px;"><img width="30px" height="30px" src="' + this.image + '"/></td>' +
           '<td>' + this.name + '</td>' +
-          '<td title="Unit Price">$' + this.price + '</td>' +
+          '<td title="Unit Price">' + options.currencySymbol + this.price + '</td>' +
           '<td title="Quantity"><input type="number" min="1" style="width: 70px;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
-          '<td title="Total" class="' + classProductTotal + '">$' + total + '</td>' +
+          '<td title="Total" class="' + classProductTotal + '">' + options.currencySymbol + total + '</td>' +
           '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + classProductRemove + '">X</a></td>' +
           '</tr>'
         );
@@ -226,7 +227,7 @@
         '<td><strong>Total</strong></td>' +
         '<td></td>' +
         '<td></td>' +
-        '<td><strong id="' + idGrandTotal + '">$</strong></td>' +
+        '<td><strong id="' + idGrandTotal + '">' + options.currencySymbol + '</strong></td>' +
         '<td></td>' +
         '</tr>'
         : '<div class="alert alert-danger" role="alert" id="' + idEmptyCartMessage + '">Your cart is empty</div>'
@@ -240,7 +241,7 @@
           '<td><strong>Total (including discount)</strong></td>' +
           '<td></td>' +
           '<td></td>' +
-          '<td><strong id="' + idDiscountPrice + '">$</strong></td>' +
+          '<td><strong id="' + idDiscountPrice + '">' + options.currencySymbol + '</strong></td>' +
           '<td></td>' +
           '</tr>'
         );
@@ -260,10 +261,10 @@
       });
     }
     var showGrandTotal = function(){
-      $("#" + idGrandTotal).text("$" + ProductManager.getTotalPrice());
+      $("#" + idGrandTotal).text(options.currencySymbol + ProductManager.getTotalPrice());
     }
     var showDiscountPrice = function(){
-      $("#" + idDiscountPrice).text("$" + options.getDiscountPrice(ProductManager.getAllProducts(), ProductManager.getTotalPrice(), ProductManager.getTotalQuantity()));
+      $("#" + idDiscountPrice).text(options.currencySymbol + options.getDiscountPrice(ProductManager.getAllProducts(), ProductManager.getTotalPrice(), ProductManager.getTotalQuantity()));
     }
 
     /*
@@ -290,7 +291,7 @@
       var id = $(this).closest("tr").data("id");
       var quantity = $(this).val();
 
-      $(this).parent("td").next("." + classProductTotal).text("$" + price * quantity);
+      $(this).parent("td").next("." + classProductTotal).text(options.currencySymbol + price * quantity);
       ProductManager.updatePoduct(id, quantity);
 
       $cartBadge.text(ProductManager.getTotalQuantity());
