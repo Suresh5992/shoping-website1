@@ -94,17 +94,44 @@ async function initializeDatabase() {
     );
   `);
 
-  // Migrate old data if exists
+  await pool.query(`
+    ALTER TABLE users ADD COLUMN IF NOT EXISTS created_at TIMESTAMP DEFAULT NOW();
+    ALTER TABLE orders ADD COLUMN IF NOT EXISTS user_id INT REFERENCES users(id);
+    ALTER TABLE orders ADD COLUMN IF NOT EXISTS transaction_id VARCHAR;
+    ALTER TABLE orders ADD COLUMN IF NOT EXISTS amount NUMERIC;
+    ALTER TABLE orders ADD COLUMN IF NOT EXISTS status TEXT DEFAULT 'completed';
+    ALTER TABLE orders ADD COLUMN IF NOT EXISTS products JSONB;
+    ALTER TABLE orders ADD COLUMN IF NOT EXISTS created_at TIMESTAMP DEFAULT NOW();
+    ALTER TABLE orders ADD COLUMN IF NOT EXISTS verified_at TIMESTAMP;
+    ALTER TABLE orders ADD COLUMN IF NOT EXISTS verified_by TEXT;
+  `);
+
   await pool.query(`
     DO $$
     BEGIN
-      -- Migrate old orders if payload exists
       IF EXISTS (
         SELECT 1 FROM information_schema.columns
         WHERE table_name = 'orders'
           AND column_name = 'payload'
+      )
+      OR EXISTS (
+        SELECT 1 FROM information_schema.columns
+        WHERE table_name = 'orders'
+          AND column_name = 'id'
+          AND data_type = 'character varying'
       ) THEN
-        -- Insert users from old orders
+        CREATE TABLE IF NOT EXISTS orders_new (
+          id SERIAL PRIMARY KEY,
+          user_id INT REFERENCES users(id),
+          transaction_id VARCHAR,
+          amount NUMERIC,
+          status TEXT DEFAULT 'completed',
+          products JSONB,
+          created_at TIMESTAMP DEFAULT NOW(),
+          verified_at TIMESTAMP,
+          verified_by TEXT
+        );
+
         INSERT INTO users (mobile, name, email, address)
         SELECT DISTINCT
           payload->'shipping'->>'mobile',
@@ -116,28 +143,26 @@ async function initializeDatabase() {
           AND payload->'shipping'->>'mobile' IS NOT NULL
         ON CONFLICT (mobile) DO NOTHING;
 
-        -- Insert orders
-        INSERT INTO orders (transaction_id, user_id, amount, products, verified_at, verified_by, created_at)
+        INSERT INTO orders_new (transaction_id, user_id, amount, products, verified_at, verified_by, created_at)
         SELECT
           o.id,
           u.id,
           (o.payload->>'total')::NUMERIC,
           o.payload->'products',
-          (o.payload->>'verified_at')::TIMESTAMP,
+          NULLIF(o.payload->>'verified_at','')::TIMESTAMP,
           o.payload->>'verified_by',
           o.created_at
         FROM orders o
-        JOIN users u ON u.mobile = o.payload->'shipping'->>'mobile'
+        LEFT JOIN users u ON u.mobile = o.payload->'shipping'->>'mobile'
         WHERE o.payload IS NOT NULL;
 
-        -- Drop old column
-        ALTER TABLE orders DROP COLUMN IF EXISTS payload;
+        DROP TABLE orders;
+        ALTER TABLE orders_new RENAME TO orders;
       END IF;
     END
     $$;
   `);
 
-  // If the column exists as BIGINT from an older schema, migrate it to TIMESTAMP.
   await pool.query(`
     DO $$
     BEGIN
