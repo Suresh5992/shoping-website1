@@ -109,6 +109,21 @@ async function initializeDatabase() {
   await pool.query(`
     DO $$
     BEGIN
+      IF NOT EXISTS (
+        SELECT 1
+        FROM pg_constraint
+        WHERE conname = 'orders_transaction_id_key'
+      ) THEN
+        ALTER TABLE orders
+        ADD CONSTRAINT orders_transaction_id_key UNIQUE (transaction_id);
+      END IF;
+    END
+    $$;
+  `);
+
+  await pool.query(`
+    DO $$
+    BEGIN
       IF EXISTS (
         SELECT 1 FROM information_schema.columns
         WHERE table_name = 'orders'
@@ -254,7 +269,9 @@ app.post('/api/verify-otp', async (req, res) => {
     // delete OTP after success
     await pool.query('DELETE FROM otps WHERE mobile=$1', [mobile]);
 
-    // Insert or update user
+    const shipping = order?.shipping || {};
+
+    // Insert or update user with shipping details immediately so they are always stored
     const userResult = await pool.query(`
       INSERT INTO users (mobile, name, email, address)
       VALUES ($1, $2, $3, $4)
@@ -263,7 +280,12 @@ app.post('/api/verify-otp', async (req, res) => {
         email = COALESCE(EXCLUDED.email, users.email),
         address = COALESCE(EXCLUDED.address, users.address)
       RETURNING id
-    `, [mobile, null, null, null]);
+    `, [
+      mobile,
+      shipping.name || null,
+      shipping.email || null,
+      shipping.address || null
+    ]);
 
     const userId = userResult.rows[0].id;
 
@@ -274,32 +296,18 @@ app.post('/api/verify-otp', async (req, res) => {
 
     // save order
     if (order && order.id) {
-      try {
-        const shipping = order.shipping || {};
-        await pool.query(`
-          INSERT INTO orders (transaction_id, user_id, amount, products, verified_at, verified_by, created_at)
-          VALUES ($1, $2, $3, $4, NOW(), $5, $6)
-          ON CONFLICT (transaction_id) DO NOTHING
-        `, [
-          order.id,
-          userId,
-          order.total,
-          JSON.stringify(order.products || []),
-          mobile,
-          order.date ? new Date(order.date) : new Date()
-        ]);
-
-        // Update user with shipping info
-        await pool.query(`
-          UPDATE users SET
-            name = COALESCE($2, name),
-            email = COALESCE($3, email),
-            address = COALESCE($4, address)
-          WHERE id = $1
-        `, [userId, shipping.name, shipping.email, shipping.address]);
-      } catch (e) {
-        console.error('save order error:', e);
-      }
+      await pool.query(`
+        INSERT INTO orders (transaction_id, user_id, amount, products, verified_at, verified_by, created_at)
+        VALUES ($1, $2, $3, $4, NOW(), $5, $6)
+        ON CONFLICT (transaction_id) DO NOTHING
+      `, [
+        order.id,
+        userId,
+        order.total,
+        JSON.stringify(order.products || []),
+        mobile,
+        order.date ? new Date(order.date) : new Date()
+      ]);
     }
 
     return res.json({ ok: true, orderId: order?.id || null });
