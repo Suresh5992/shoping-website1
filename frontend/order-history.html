@@ -50,9 +50,9 @@ function renderOrders(){
         var html = '';
         orders.forEach(function(o){
           html += '<div class="panel panel-default" style="margin-top:12px">';
-          html += '<div class="panel-heading"><strong>Order '+o.id+'</strong> <span class="pull-right">'+(new Date(o.created_at)).toLocaleString()+'</span></div>';
+          html += '<div class="panel-heading"><strong>Order '+o.transaction_id+'</strong> <span class="pull-right">'+(new Date(o.created_at)).toLocaleString()+'</span></div>';
           html += '<div class="panel-body">';
-          html += '<p><strong>Total:</strong> ₹ '+o.total+'</p>';
+          html += '<p><strong>Total:</strong> ₹ '+o.amount+'</p>';
           html += '<p><strong>Shipping:</strong> '+(o.name||'')+' &nbsp; '+(o.mobile||'')+'<br>'+(o.address||'')+'</p>';
           html += '<table class="table table-condensed"><thead><tr><th>Product</th><th>Qty</th><th class="text-right">Price</th></tr></thead><tbody>';
           (o.products||[]).forEach(function(p){

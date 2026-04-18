@@ -62,43 +62,74 @@ async function initializeDatabase() {
   `);
 
   await pool.query(`
-    CREATE TABLE IF NOT EXISTS orders (
-      id VARCHAR PRIMARY KEY,
-      transaction_id VARCHAR,
-      mobile VARCHAR,
-      name VARCHAR,
-      email VARCHAR,
-      products JSONB,
+    CREATE TABLE IF NOT EXISTS users (
+      id SERIAL PRIMARY KEY,
+      name TEXT,
+      email TEXT UNIQUE,
+      mobile TEXT UNIQUE NOT NULL,
       address TEXT,
-      total NUMERIC(10,2),
-      created_at TIMESTAMP DEFAULT NOW(),
-      verified_at TIMESTAMP,
-      verified_by VARCHAR
+      created_at TIMESTAMP DEFAULT NOW()
     );
   `);
 
-  // Migrate old payload data if exists
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS logins (
+      id SERIAL PRIMARY KEY,
+      user_id INT REFERENCES users(id),
+      login_time TIMESTAMP DEFAULT NOW()
+    );
+  `);
+
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS orders (
+      id SERIAL PRIMARY KEY,
+      user_id INT REFERENCES users(id),
+      transaction_id VARCHAR,
+      amount NUMERIC,
+      status TEXT DEFAULT 'completed',
+      products JSONB,
+      created_at TIMESTAMP DEFAULT NOW(),
+      verified_at TIMESTAMP,
+      verified_by TEXT
+    );
+  `);
+
+  // Migrate old data if exists
   await pool.query(`
     DO $$
     BEGIN
+      -- Migrate old orders if payload exists
       IF EXISTS (
         SELECT 1 FROM information_schema.columns
         WHERE table_name = 'orders'
           AND column_name = 'payload'
       ) THEN
-        -- Migrate existing data
-        UPDATE orders SET
-          transaction_id = id,
-          mobile = payload->'shipping'->>'mobile',
-          name = payload->'shipping'->>'name',
-          email = payload->'shipping'->>'email',
-          products = payload->'products',
-          address = payload->'shipping'->>'address',
-          total = (payload->>'total')::NUMERIC,
-          verified_at = (payload->>'verified_at')::TIMESTAMP,
-          verified_by = payload->>'verified_by'
-        WHERE payload IS NOT NULL;
-        
+        -- Insert users from old orders
+        INSERT INTO users (mobile, name, email, address)
+        SELECT DISTINCT
+          payload->'shipping'->>'mobile',
+          payload->'shipping'->>'name',
+          payload->'shipping'->>'email',
+          payload->'shipping'->>'address'
+        FROM orders
+        WHERE payload IS NOT NULL
+          AND payload->'shipping'->>'mobile' IS NOT NULL
+        ON CONFLICT (mobile) DO NOTHING;
+
+        -- Insert orders
+        INSERT INTO orders (transaction_id, user_id, amount, products, verified_at, verified_by, created_at)
+        SELECT
+          o.id,
+          u.id,
+          (o.payload->>'total')::NUMERIC,
+          o.payload->'products',
+          (o.payload->>'verified_at')::TIMESTAMP,
+          o.payload->>'verified_by',
+          o.created_at
+        FROM orders o
+        JOIN users u ON u.mobile = o.payload->'shipping'->>'mobile'
+        WHERE o.payload IS NOT NULL;
+
         -- Drop old column
         ALTER TABLE orders DROP COLUMN IF EXISTS payload;
       END IF;
@@ -198,27 +229,49 @@ app.post('/api/verify-otp', async (req, res) => {
     // delete OTP after success
     await pool.query('DELETE FROM otps WHERE mobile=$1', [mobile]);
 
+    // Insert or update user
+    const userResult = await pool.query(`
+      INSERT INTO users (mobile, name, email, address)
+      VALUES ($1, $2, $3, $4)
+      ON CONFLICT (mobile) DO UPDATE SET
+        name = COALESCE(EXCLUDED.name, users.name),
+        email = COALESCE(EXCLUDED.email, users.email),
+        address = COALESCE(EXCLUDED.address, users.address)
+      RETURNING id
+    `, [mobile, null, null, null]);
+
+    const userId = userResult.rows[0].id;
+
+    // Insert login
+    await pool.query(`
+      INSERT INTO logins (user_id) VALUES ($1)
+    `, [userId]);
+
     // save order
     if (order && order.id) {
       try {
         const shipping = order.shipping || {};
-        await pool.query(
-          `INSERT INTO orders (id, transaction_id, mobile, name, email, products, address, total, verified_at, verified_by, created_at)
-           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, NOW(), $9, $10)
-           ON CONFLICT (id) DO NOTHING`,
-          [
-            order.id,
-            order.id, // transaction_id same as id
-            shipping.mobile,
-            shipping.name,
-            shipping.email,
-            JSON.stringify(order.products || []),
-            shipping.address,
-            order.total,
-            mobile,
-            order.date ? new Date(order.date) : new Date()
-          ]
-        );
+        await pool.query(`
+          INSERT INTO orders (transaction_id, user_id, amount, products, verified_at, verified_by, created_at)
+          VALUES ($1, $2, $3, $4, NOW(), $5, $6)
+          ON CONFLICT (transaction_id) DO NOTHING
+        `, [
+          order.id,
+          userId,
+          order.total,
+          JSON.stringify(order.products || []),
+          mobile,
+          order.date ? new Date(order.date) : new Date()
+        ]);
+
+        // Update user with shipping info
+        await pool.query(`
+          UPDATE users SET
+            name = COALESCE($2, name),
+            email = COALESCE($3, email),
+            address = COALESCE($4, address)
+          WHERE id = $1
+        `, [userId, shipping.name, shipping.email, shipping.address]);
       } catch (e) {
         console.error('save order error:', e);
       }
@@ -268,13 +321,41 @@ app.post('/api/send-email', async (req, res) => {
 app.get('/api/orders', async (_req, res) => {
   try {
     const result = await pool.query(`
-      SELECT id, transaction_id, mobile, name, email, products, address, total, created_at, verified_at, verified_by
-      FROM orders ORDER BY created_at DESC LIMIT 100
+      SELECT o.id, o.transaction_id, o.amount, o.status, o.products, o.created_at, o.verified_at, o.verified_by,
+             u.name, u.email, u.mobile, u.address
+      FROM orders o
+      JOIN users u ON o.user_id = u.id
+      ORDER BY o.created_at DESC LIMIT 100
     `);
     return res.json({ ok: true, orders: result.rows });
   } catch (err) {
     console.error('orders fetch error', err);
     return res.status(500).json({ error: 'orders_fetch_failed' });
+  }
+});
+
+// ---------------- USERS ANALYTICS ----------------
+app.get('/api/users-analytics', async (_req, res) => {
+  try {
+    const result = await pool.query(`
+      SELECT 
+        u.name,
+        u.email,
+        u.mobile,
+        u.address,
+        COUNT(DISTINCT l.id) AS login_count,
+        COUNT(DISTINCT o.id) AS order_count,
+        COALESCE(SUM(o.amount), 0) AS total_amount
+      FROM users u
+      LEFT JOIN logins l ON u.id = l.user_id
+      LEFT JOIN orders o ON u.id = o.user_id
+      GROUP BY u.id
+      ORDER BY total_amount DESC
+    `);
+    return res.json({ ok: true, analytics: result.rows });
+  } catch (err) {
+    console.error('analytics fetch error', err);
+    return res.status(500).json({ error: 'analytics_fetch_failed' });
   }
 });
 

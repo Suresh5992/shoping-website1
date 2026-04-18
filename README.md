@@ -40,7 +40,8 @@ Serve the `frontend/` directory with a static web server or open from a local fi
 - `POST /api/send-otp` — request OTP for a mobile number
 - `POST /api/verify-otp` — verify OTP and save order transaction
 - `POST /api/send-email` — optional transactional email sending
-- `GET /api/orders` — fetch saved orders
+- `GET /api/orders` — fetch saved orders with user details
+- `GET /api/users-analytics` — get user analytics (name, email, mobile, address, login count, order count, total amount)
 
 ## Environment
 
@@ -56,6 +57,17 @@ The backend reads these environment variables from `backend/.env.example`:
 - `SMTP_PORT`
 - `SMTP_USER`
 - `SMTP_PASS`
+
+## Database Schema
+
+The backend creates these tables automatically:
+
+- `users` — user accounts (id, name, email, mobile, address, created_at)
+- `logins` — login history (id, user_id, login_time)
+- `orders` — transactions (id, user_id, transaction_id, amount, status, products, created_at, verified_at, verified_by)
+- `otps` — OTP storage (mobile, otp, expires_at, created_at)
+
+The `/api/users-analytics` endpoint provides the analytics table you requested, showing user details with login and order counts.
 
 ## Kubernetes
 
