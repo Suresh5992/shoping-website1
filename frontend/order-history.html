@@ -34,30 +34,42 @@ function renderOrders(){
     return;
   }
   var out = document.getElementById('orders');
-  var orders = [];
-  try{ orders = JSON.parse(localStorage.getItem('orders')||'[]'); }catch(e){ orders = []; }
-  if(!orders.length){
-    out.innerHTML = '<div class="alert alert-info">No orders found.</div>';
-    return;
-  }
+  out.innerHTML = '<div class="alert alert-info">Loading orders...</div>';
 
-  var html = '';
-  orders.forEach(function(o){
-    html += '<div class="panel panel-default" style="margin-top:12px">';
-    html += '<div class="panel-heading"><strong>Order '+o.id+'</strong> <span class="pull-right">'+(new Date(o.date)).toLocaleString()+'</span></div>';
-    html += '<div class="panel-body">';
-    html += '<p><strong>Total:</strong> ₹ '+o.total+'</p>';
-    if(o.shipping){
-      html += '<p><strong>Shipping:</strong> '+(o.shipping.name||'')+' &nbsp; '+(o.shipping.mobile||'')+'<br>'+(o.shipping.address||'')+'</p>';
-    }
-    html += '<table class="table table-condensed"><thead><tr><th>Product</th><th>Qty</th><th class="text-right">Price</th></tr></thead><tbody>';
-    (o.products||[]).forEach(function(p){
-      html += '<tr><td>'+ (p.name||'') +'</td><td>'+ (p.quantity||1) +'</td><td class="text-right">₹ '+((p.price||0)*(p.quantity||1)) +'</td></tr>';
+  var API_BASE = window.API_BASE || '';
+  fetch(API_BASE + '/api/orders')
+    .then(function(r){ return r.json(); })
+    .then(function(json){
+      if(json && json.ok && json.orders){
+        var orders = json.orders;
+        if(!orders.length){
+          out.innerHTML = '<div class="alert alert-info">No orders found.</div>';
+          return;
+        }
+
+        var html = '';
+        orders.forEach(function(o){
+          html += '<div class="panel panel-default" style="margin-top:12px">';
+          html += '<div class="panel-heading"><strong>Order '+o.id+'</strong> <span class="pull-right">'+(new Date(o.created_at)).toLocaleString()+'</span></div>';
+          html += '<div class="panel-body">';
+          html += '<p><strong>Total:</strong> ₹ '+o.total+'</p>';
+          html += '<p><strong>Shipping:</strong> '+(o.name||'')+' &nbsp; '+(o.mobile||'')+'<br>'+(o.address||'')+'</p>';
+          html += '<table class="table table-condensed"><thead><tr><th>Product</th><th>Qty</th><th class="text-right">Price</th></tr></thead><tbody>';
+          (o.products||[]).forEach(function(p){
+            html += '<tr><td>'+ (p.name||'') +'</td><td>'+ (p.quantity||1) +'</td><td class="text-right">₹ '+((p.price||0)*(p.quantity||1)) +'</td></tr>';
+          });
+          html += '</tbody></table>';
+          html += '</div></div>';
+        });
+        out.innerHTML = html;
+      } else {
+        out.innerHTML = '<div class="alert alert-warning">Failed to load orders.</div>';
+      }
+    })
+    .catch(function(err){
+      console.error('Fetch orders error:', err);
+      out.innerHTML = '<div class="alert alert-danger">Error loading orders. Please try again.</div>';
     });
-    html += '</tbody></table>';
-    html += '</div></div>';
-  });
-  out.innerHTML = html;
 }
 
 renderOrders();

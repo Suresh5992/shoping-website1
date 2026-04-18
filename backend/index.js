@@ -56,16 +56,54 @@ async function initializeDatabase() {
     CREATE TABLE IF NOT EXISTS otps (
       mobile VARCHAR PRIMARY KEY,
       otp VARCHAR(6),
-      expires_at TIMESTAMP
+      expires_at TIMESTAMP,
+      created_at TIMESTAMP DEFAULT NOW()
     );
   `);
 
   await pool.query(`
     CREATE TABLE IF NOT EXISTS orders (
       id VARCHAR PRIMARY KEY,
-      payload JSONB,
-      created_at TIMESTAMP DEFAULT NOW()
+      transaction_id VARCHAR,
+      mobile VARCHAR,
+      name VARCHAR,
+      email VARCHAR,
+      products JSONB,
+      address TEXT,
+      total NUMERIC(10,2),
+      created_at TIMESTAMP DEFAULT NOW(),
+      verified_at TIMESTAMP,
+      verified_by VARCHAR
     );
+  `);
+
+  // Migrate old payload data if exists
+  await pool.query(`
+    DO $$
+    BEGIN
+      IF EXISTS (
+        SELECT 1 FROM information_schema.columns
+        WHERE table_name = 'orders'
+          AND column_name = 'payload'
+      ) THEN
+        -- Migrate existing data
+        UPDATE orders SET
+          transaction_id = id,
+          mobile = payload->'shipping'->>'mobile',
+          name = payload->'shipping'->>'name',
+          email = payload->'shipping'->>'email',
+          products = payload->'products',
+          address = payload->'shipping'->>'address',
+          total = (payload->>'total')::NUMERIC,
+          verified_at = (payload->>'verified_at')::TIMESTAMP,
+          verified_by = payload->>'verified_by'
+        WHERE payload IS NOT NULL;
+        
+        -- Drop old column
+        ALTER TABLE orders DROP COLUMN IF EXISTS payload;
+      END IF;
+    END
+    $$;
   `);
 
   // If the column exists as BIGINT from an older schema, migrate it to TIMESTAMP.
@@ -163,17 +201,23 @@ app.post('/api/verify-otp', async (req, res) => {
     // save order
     if (order && order.id) {
       try {
-        const payload = {
-          ...order,
-          verified_at: new Date().toISOString(),
-          verified_by: mobile,
-        };
-
+        const shipping = order.shipping || {};
         await pool.query(
-          `INSERT INTO orders (id, payload, created_at)
-           VALUES ($1, $2, NOW())
+          `INSERT INTO orders (id, transaction_id, mobile, name, email, products, address, total, verified_at, verified_by, created_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, NOW(), $9, $10)
            ON CONFLICT (id) DO NOTHING`,
-          [order.id, JSON.stringify(payload)]
+          [
+            order.id,
+            order.id, // transaction_id same as id
+            shipping.mobile,
+            shipping.name,
+            shipping.email,
+            JSON.stringify(order.products || []),
+            shipping.address,
+            order.total,
+            mobile,
+            order.date ? new Date(order.date) : new Date()
+          ]
         );
       } catch (e) {
         console.error('save order error:', e);
@@ -223,7 +267,10 @@ app.post('/api/send-email', async (req, res) => {
 // ---------------- ORDERS LIST ----------------
 app.get('/api/orders', async (_req, res) => {
   try {
-    const result = await pool.query('SELECT id, payload, created_at FROM orders ORDER BY created_at DESC LIMIT 100');
+    const result = await pool.query(`
+      SELECT id, transaction_id, mobile, name, email, products, address, total, created_at, verified_at, verified_by
+      FROM orders ORDER BY created_at DESC LIMIT 100
+    `);
     return res.json({ ok: true, orders: result.rows });
   } catch (err) {
     console.error('orders fetch error', err);

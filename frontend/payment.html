@@ -201,7 +201,7 @@ document.getElementById('proceedCheckout').addEventListener('click', function(){
 
 function sendOtpToMobile(mobile){
   // Try real API first (if available), otherwise fall back to demo OTP
-  var API_BASE = window.API_BASE || '/api';
+  var API_BASE = window.API_BASE || '';
   showSpinner('Sending OTP to ' + mobile + '...');
   fetch(API_BASE + '/api/send-otp', { method: 'POST', headers: { 'Content-Type':'application/json' }, body: JSON.stringify({ mobile: mobile }) })
     .then(function(r){ return r.json(); })
@@ -260,7 +260,7 @@ function verifyOtpAndPay(){
   if(!val){ alert('Enter OTP'); return; }
 
   // If server was used, verify via API; otherwise check demo OTP
-  var API_BASE = window.API_BASE || '/api';
+  var API_BASE = window.API_BASE || '';
   showSpinner('Verifying OTP...');
   fetch(API_BASE + '/api/verify-otp', { method: 'POST', headers: { 'Content-Type':'application/json' }, body: JSON.stringify({ mobile: document.getElementById('otpSentTo').innerText, otp: val, order: window.__pendingOrder }) })
     .then(function(r){ return r.json(); })
@@ -296,7 +296,7 @@ function finalizeOrder(){
       localStorage.removeItem('cartProducts'); localStorage.removeItem('cartTotal'); localStorage.removeItem('products');
 
       // try to send confirmation email via API, but don't block
-      var API_BASE = window.API_BASE || 'http://localhost:3000';
+      var API_BASE = window.API_BASE || '';
       fetch(API_BASE + '/api/send-email', { method: 'POST', headers: { 'Content-Type':'application/json' }, body: JSON.stringify({ to: order.shipping.email, subject: 'Order ' + order.id + ' Confirmation', text: 'Thank you for your order. Order ID: ' + order.id + '\nTotal: ' + order.total }) }).catch(function(){});
 
       window.location.href = 'success.html';
