@@ -2,124 +2,78 @@
 
 ## Overview
 
-This repository contains a simple ecommerce-style demo with a static frontend and a Node.js backend API. The app uses PostgreSQL for OTP verification and order persistence.
+This repository contains the Big Store demo application with:
 
-The current setup includes enhancements for a production-style experience, such as:
+- A static frontend in `frontend/`
+- A Node.js / Express backend in `backend/`
+- PostgreSQL persistence for OTPs and order transactions
+- Kubernetes manifests in `k8s/` for deployment into a cluster
 
-- Frontend footer version labels for `frontend` and `backend`
-- A richer success page with live production badge, animated product image cards, promo blocks, and upcoming feature teasers
-- Order history access restricted to signed-in users only
-- Cart and price display converted to Indian Rupees (`₹`)
+The application stores order transactions in Postgres with fields for transaction ID, customer name, email, mobile, shipping address, product details, order total, and timestamps.
 
-## Repository structure
+## Project structure
 
-- `frontend/` - static HTML/CSS/JS site and Nginx proxy configuration
-- `backend/` - Express API service, dependencies, and environment example
-- `database/` - placeholder for database deployment artifacts, SQL scripts, and schema files
+- `frontend/` — static website assets, checkout flow, order history page, and success UI
+- `backend/` — Express API server, PostgreSQL connection, OTP verification, order persistence
+- `database/` — database-related files and schema artifacts
+- `k8s/` — Kubernetes deployment and service manifests
 
-## Technology stack
+## Run locally
 
-- Frontend: HTML, CSS, JavaScript, Bootstrap, Font Awesome, jQuery
-- Backend: Node.js, Express, body-parser, cors, dotenv
-- Database: PostgreSQL
-- Optional integrations: Twilio SMS, SendGrid / SMTP email
-
-## Ports and service mapping
-
-| Service | Port | Description |
-|---|---|---|
-| Backend API | `3000` | Express app listens on port `3000` |
-| PostgreSQL | `5432` | Default Postgres port |
-
-## Backend local run
-
-1. Open a terminal and go to the backend folder:
+### Backend
 
 ```powershell
 cd c:\big_store_web\backend
-```
-
-2. Install dependencies:
-
-```powershell
 npm install
-```
-
-3. Copy environment example and configure values:
-
-```powershell
 copy .env.example .env
-```
-
-4. Start the backend:
-
-```powershell
 npm start
 ```
 
-5. The API will be available at:
+The backend listens on `http://localhost:3000` by default.
 
-```text
-http://localhost:3000
-```
+### Frontend
 
-## API endpoints
+Serve the `frontend/` directory with a static web server or open from a local file server. The frontend expects API requests to reach `/api/*`.
 
-- `GET /api/ping` — health check
-- `POST /api/send-otp` — send or log OTP
-- `POST /api/verify-otp` — verify OTP and optionally save order
-- `POST /api/send-email` — send transactional email
+## Backend endpoints
 
-### Example request body
+- `POST /api/send-otp` — request OTP for a mobile number
+- `POST /api/verify-otp` — verify OTP and save order transaction
+- `POST /api/send-email` — optional transactional email sending
+- `GET /api/orders` — fetch saved orders
 
-```json
-{
-  "mobile": "+1234567890"
-}
-```
+## Environment
 
-## Frontend hosting
+The backend reads these environment variables from `backend/.env.example`:
 
-The frontend lives in `frontend/` and is a static site. It is expected to be served by a static web server such as Nginx.
-
-The frontend is configured to call backend APIs via the `/api/` path.
-
-### `frontend/default.conf`
-
-- Static assets are served from `/usr/share/nginx/html`
-- Requests to `/api/` are proxied to the backend at `http://api:3000/api/`
-
-> In local development, if you are not using service discovery, you may need to change the proxy target to `http://localhost:3000/api/` or configure your reverse proxy accordingly.
-
-## Database
-
-The backend uses PostgreSQL and expects these environment variables from `backend/.env.example`:
-
+- `PORT`
 - `POSTGRES_HOST`
 - `POSTGRES_PORT`
 - `POSTGRES_DB`
 - `POSTGRES_USER`
 - `POSTGRES_PASSWORD`
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USER`
+- `SMTP_PASS`
 
-The backend creates the following tables automatically:
+## Kubernetes
 
-- `otps`
-- `orders`
+The `k8s/` folder contains deployment and service YAML for:
 
-## Notes
+- `backend`
+- `frontend`
+- `postgres`
+- `pgadmin`
 
-- There are no Dockerfiles, Docker Compose files, or Kubernetes manifests in this repo currently.
-- The `database/` folder is reserved for future database deployment files.
-- The project currently requires manual hosting of the frontend and backend.
+## Notes for GitHub / Jenkins
 
-## Connecting frontend to backend
+- Push changes to GitHub to trigger your Jenkins pipeline if it is configured to monitor this repository.
+- Ensure `backend/.env` and production database credentials are provided in the deployment environment.
+- The current code now persists order records to Postgres and exposes `/api/orders` for order history.
 
-1. Start the backend on `localhost:3000`.
-2. Serve the contents of `frontend/` with a static server.
-3. Ensure `/api/` requests from the frontend are proxied to `http://localhost:3000/api/`.
+## Fixes included
 
-## Next steps
-
-- Add a production-ready Nginx or static web server deployment for `frontend/`
-- Add Kubernetes manifests for `frontend`, `backend`, and Postgres
-- Add a CI/CD pipeline (Jenkinsfile) to build and deploy the app
+- Updated the success page to use a robust icon rendering method so it displays correctly in browsers
+- Added project documentation for local startup and deployment
+- Confirmed the order persistence flow saves transaction data to the database

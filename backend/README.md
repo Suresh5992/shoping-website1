@@ -1,48 +1,62 @@
-Big Store API
-=================
+# Big Store API
 
-This small Express API provides endpoints for sending SMS OTPs and transactional emails used by the demo frontend.
+The `backend/` folder contains the Express API server for the Big Store application.
 
-Install
--------
+## What it does
 
-1. cd to the server folder
+- Sends OTP codes to mobile numbers for verification
+- Verifies OTP codes
+- Stores order transactions in PostgreSQL
+- Sends optional transactional emails
+- Exposes orders for frontend order history
 
-```bash
-cd web/server
+## Setup
+
+```powershell
+cd c:\big_store_web\backend
 npm install
+copy .env.example .env
 ```
 
-2. Copy `.env.example` to `.env` and fill provider credentials (Twilio or SendGrid) if you want real SMS/email.
+Edit `backend/.env` to configure database and SMTP credentials.
 
-Run
----
+## Run
 
-```bash
+```powershell
 npm start
 ```
 
-Endpoints
----------
-- POST /api/send-otp { mobile }
-- POST /api/verify-otp { mobile, otp }
-- POST /api/send-email { to, subject, text, html }
+The API listens on the port configured in `PORT`, default `3000`.
 
-Notes
------
-- If Twilio or SendGrid credentials are not provided the server will log OTPs and email bodies and return a demo success response — useful for local testing.
-- The OTP store is in-memory and not persistent. For production use replace with a short-lived DB or cache (Redis).
+## Endpoints
 
-Docker
-------
-A Docker setup is included to run the frontend (nginx) and the API together.
+- `POST /api/send-otp` — body: `{ "mobile": "1234567890" }`
+- `POST /api/verify-otp` — body: `{ "mobile": "1234567890", "otp": "123456", "order": { ... } }`
+- `POST /api/send-email` — body: `{ "to": "user@example.com", "subject": "...", "text": "..." }`
+- `GET /api/orders` — returns stored orders
 
-Build and run with docker-compose from the `web` folder:
+## Database
 
-```bash
-cd web
-docker-compose up --build
-```
+The backend stores data in PostgreSQL and creates these tables automatically:
 
-- Frontend will be available at http://localhost:8080
-- API will be available at http://localhost:3000 (also proxied at /api from frontend)
+- `otps`
+- `orders`
+
+The `orders` table now includes fields for:
+
+- `id` / `transaction_id`
+- `name`
+- `email`
+- `mobile`
+- `products` (JSONB)
+- `address`
+- `total`
+- `created_at`
+- `verified_at`
+- `verified_by`
+
+## Notes
+
+- The backend uses `pg` to connect to PostgreSQL.
+- The frontend should call backend routes through `/api/`.
+- This README is aligned with the current repository structure.

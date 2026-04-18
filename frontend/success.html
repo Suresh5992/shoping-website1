@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Success</title>
   <link rel="stylesheet" href="css/bootstrap.css">
   <style>
@@ -10,7 +11,8 @@
     .badge-pill { display: inline-flex; align-items: center; gap: .5rem; background: #0d6efd; color: #fff; padding: .45rem 1rem; border-radius: 999px; box-shadow: 0 18px 35px rgba(13,110,253,.18); margin-bottom: 22px; font-weight: 600; animation: pulseBadge 2.8s ease-in-out infinite; }
     .badge-pill span { background: rgba(255,255,255,.18); padding: .2rem .65rem; border-radius: 999px; font-size: .85rem; }
     .success-top { max-width: 760px; width: 100%; text-align: center; animation: fadeInUp .8s ease; }
-    .success-icon { width: 78px; height: 78px; line-height: 78px; margin: 0 auto 20px; border-radius: 50%; background: #198754; color: #fff; font-size: 2.2rem; box-shadow: 0 24px 40px rgba(25,135,84,.22); }
+    .success-icon { width: 78px; height: 78px; line-height: 78px; margin: 0 auto 20px; border-radius: 50%; background: #198754; color: #fff; font-size: 2.2rem; box-shadow: 0 24px 40px rgba(25,135,84,.22); display: flex; align-items: center; justify-content: center; }
+    .success-icon::before { content: "\2714"; }
     .success-title { font-size: 3rem; margin: 0 0 18px; color: #198754; }
     .success-subtitle { font-size: 1.05rem; color: #495057; margin-bottom: 30px; line-height: 1.75; }
     .btn-primary { padding: .9rem 2rem; font-size: 1.05rem; border-radius: 50px; }
@@ -55,7 +57,7 @@
   <div class="badge-pill">Live Production Site <span>Production</span></div>
 
   <div class="success-top">
-    <div class="success-icon">&#10004;</div>
+    <div class="success-icon"></div>
     <h1 class="success-title">Order Placed Successfully</h1>
     <p class="success-subtitle">Thank you for shopping with us! Your order is confirmed and will arrive soon. Keep an eye on your email for delivery updates.</p>
     <a href="index.html" class="btn btn-primary">Continue Shopping</a>
