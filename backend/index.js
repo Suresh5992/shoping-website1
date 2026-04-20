@@ -199,6 +199,17 @@ async function initializeDatabase() {
 }
 
 // ---------------- SEND OTP ----------------
+app.get('/api', (_req, res) => {
+  return res.json({
+    ok: true,
+    message: 'Big Store API is running',
+    endpoints: {
+      health: '/api/health',
+      orders: '/api/orders',
+    },
+  });
+});
+
 app.post('/api/send-otp', async (req, res) => {
   const { mobile } = req.body;
 
@@ -393,6 +404,16 @@ app.get('/api/users-analytics', async (_req, res) => {
 });
 
 // ---------------- HEALTH CHECK ----------------
+app.get('/api/health', async (_req, res) => {
+  try {
+    await pool.query('SELECT 1');
+    return res.json({ ok: true, status: 'healthy' });
+  } catch (err) {
+    console.error('api health error', err);
+    return res.status(503).json({ ok: false, error: 'db_unavailable' });
+  }
+});
+
 app.get('/healthz', async (_req, res) => {
   try {
     await pool.query('SELECT 1');
