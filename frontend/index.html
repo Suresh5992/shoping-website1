@@ -781,8 +781,41 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<b class="line"></b>
 				</div>
 			</div>
-				<div class=" con-w3l">
-							<div class="col-md-3 pro-1">
+				<div class="product-toolbar">
+					<div class="product-toolbar__intro">
+						<h4>Find your next pick</h4>
+						<p>Search products, narrow by category, and filter by your budget.</p>
+					</div>
+					<div class="product-toolbar__controls">
+						<div class="product-toolbar__field product-toolbar__field--search">
+							<label for="productSearch">Search products</label>
+							<input type="search" id="productSearch" placeholder="Search by product name">
+						</div>
+						<div class="product-toolbar__field">
+							<label for="categoryFilter">Category</label>
+							<select id="categoryFilter">
+								<option value="all">All categories</option>
+								<option value="Personal Care">Personal Care</option>
+								<option value="Fresh Produce">Fresh Produce</option>
+								<option value="Household">Household</option>
+							</select>
+						</div>
+						<div class="product-toolbar__field">
+							<label for="minPriceFilter">Min price</label>
+							<input type="number" id="minPriceFilter" min="0" step="0.1" placeholder="0.00">
+						</div>
+						<div class="product-toolbar__field">
+							<label for="maxPriceFilter">Max price</label>
+							<input type="number" id="maxPriceFilter" min="0" step="0.1" placeholder="10.00">
+						</div>
+						<div class="product-toolbar__actions">
+							<button type="button" id="clearProductFilters" class="btn btn-default">Clear</button>
+						</div>
+					</div>
+					<p class="product-toolbar__summary" id="productResultsSummary">Showing 8 products</p>
+				</div>
+				<div class=" con-w3l" id="productGrid">
+							<div class="col-md-3 pro-1 product-card" data-category="Personal Care" data-price="6.00" data-name="Moisturiser" data-rating="4.8" data-stock="In Stock">
 								<div class="col-m">
 								<a href="#" data-toggle="modal" data-target="#myModal17" class="offer-img">
 										<img src="images/of16.png" class="img-responsive" alt="">
@@ -794,7 +827,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<div class="mid-2">
 											<p ><label>&#8377;7.00</label><em class="item_price">&#8377;6.00</em></p>
 											  <div class="block">
-												<div class="starbox small ghosting"> </div>
+												<div class="starbox small ghosting" data-start-value="4.8" data-button-count="5"> </div>
+											</div>
+											<div class="product-meta">
+												<span class="product-rating">4.8/5 rating</span>
+												<span class="product-stock in-stock">In Stock</span>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -804,7 +841,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 pro-1">
+							<div class="col-md-3 pro-1 product-card" data-category="Fresh Produce" data-price="4.50" data-name="Lady Finger" data-rating="4.4" data-stock="Low Stock">
 								<div class="col-m">
 									<a href="#" data-toggle="modal" data-target="#myModal18" class="offer-img">
 										<img src="images/of17.png" class="img-responsive" alt="">
@@ -816,7 +853,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<div class="mid-2">
 											<p ><label>&#8377;5.00</label><em class="item_price">&#8377;4.50</em></p>
 											  <div class="block">
-												<div class="starbox small ghosting"> </div>
+												<div class="starbox small ghosting" data-start-value="4.4" data-button-count="5"> </div>
+											</div>
+											<div class="product-meta">
+												<span class="product-rating">4.4/5 rating</span>
+												<span class="product-stock low-stock">Low Stock</span>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -826,7 +867,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 pro-1">
+							<div class="col-md-3 pro-1 product-card" data-category="Household" data-price="3.50" data-name="Ribbon" data-rating="4.1" data-stock="In Stock">
 								<div class="col-m">
 									<a href="#" data-toggle="modal" data-target="#myModal19" class="offer-img">
 										<img src="images/of18.png" class="img-responsive" alt="">
@@ -838,7 +879,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<div class="mid-2">
 											<p ><label>&#8377;4.00</label><em class="item_price">&#8377;3.50</em></p>
 											  <div class="block">
-												<div class="starbox small ghosting"> </div>
+												<div class="starbox small ghosting" data-start-value="4.1" data-button-count="5"> </div>
+											</div>
+											<div class="product-meta">
+												<span class="product-rating">4.1/5 rating</span>
+												<span class="product-stock in-stock">In Stock</span>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -848,7 +893,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 pro-1">
+							<div class="col-md-3 pro-1 product-card" data-category="Fresh Produce" data-price="0.80" data-name="Grapes" data-rating="4.7" data-stock="In Stock">
 								<div class="col-m">
 									<a href="#" data-toggle="modal" data-target="#myModal20" class="offer-img">
 										<img src="images/of19.png" class="img-responsive" alt="">
@@ -860,7 +905,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<div class="mid-2">
 											<p ><label>&#8377;1.00</label><em class="item_price">&#8377;0.80</em></p>
 											  <div class="block">
-												<div class="starbox small ghosting"> </div>
+												<div class="starbox small ghosting" data-start-value="4.7" data-button-count="5"> </div>
+											</div>
+											<div class="product-meta">
+												<span class="product-rating">4.7/5 rating</span>
+												<span class="product-stock in-stock">In Stock</span>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -871,7 +920,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								</div>
 							</div>
 							
-							<div class="col-md-3 pro-1">
+							<div class="col-md-3 pro-1 product-card" data-category="Household" data-price="6.00" data-name="Clips" data-rating="3.9" data-stock="Low Stock">
 								<div class="col-m">
 								<a href="#" data-toggle="modal" data-target="#myModal21" class="offer-img">
 										<img src="images/of20.png" class="img-responsive" alt="">
@@ -883,7 +932,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<div class="mid-2">
 											<p ><label>&#8377;7.00</label><em class="item_price">&#8377;6.00</em></p>
 											  <div class="block">
-												<div class="starbox small ghosting"> </div>
+												<div class="starbox small ghosting" data-start-value="3.9" data-button-count="5"> </div>
+											</div>
+											<div class="product-meta">
+												<span class="product-rating">3.9/5 rating</span>
+												<span class="product-stock low-stock">Low Stock</span>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -893,7 +946,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 pro-1">
+							<div class="col-md-3 pro-1 product-card" data-category="Personal Care" data-price="4.50" data-name="Conditioner" data-rating="4.6" data-stock="In Stock">
 								<div class="col-m">
 									<a href="#" data-toggle="modal" data-target="#myModal22" class="offer-img">
 										<img src="images/of21.png" class="img-responsive" alt="">
@@ -905,7 +958,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<div class="mid-2">
 											<p ><label>&#8377;5.00</label><em class="item_price">&#8377;4.50</em></p>
 											  <div class="block">
-												<div class="starbox small ghosting"> </div>
+												<div class="starbox small ghosting" data-start-value="4.6" data-button-count="5"> </div>
+											</div>
+											<div class="product-meta">
+												<span class="product-rating">4.6/5 rating</span>
+												<span class="product-stock in-stock">In Stock</span>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -915,7 +972,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 pro-1">
+							<div class="col-md-3 pro-1 product-card" data-category="Household" data-price="3.50" data-name="Cleaner" data-rating="4.3" data-stock="In Stock">
 								<div class="col-m">
 									<a href="#" data-toggle="modal" data-target="#myModal23" class="offer-img">
 										<img src="images/of22.png" class="img-responsive" alt="">
@@ -927,7 +984,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<div class="mid-2">
 											<p ><label>&#8377;4.00</label><em class="item_price">&#8377;3.50</em></p>
 											  <div class="block">
-												<div class="starbox small ghosting"> </div>
+												<div class="starbox small ghosting" data-start-value="4.3" data-button-count="5"> </div>
+											</div>
+											<div class="product-meta">
+												<span class="product-rating">4.3/5 rating</span>
+												<span class="product-stock in-stock">In Stock</span>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -937,7 +998,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 pro-1">
+							<div class="col-md-3 pro-1 product-card" data-category="Personal Care" data-price="0.80" data-name="Gel" data-rating="4.2" data-stock="Only 2 Left">
 								<div class="col-m">
 									<a href="#" data-toggle="modal" data-target="#myModal24" class="offer-img">
 										<img src="images/of23.png" class="img-responsive" alt="">
@@ -949,7 +1010,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<div class="mid-2">
 											<p ><label>&#8377;1.00</label><em class="item_price">&#8377;0.80</em></p>
 											  <div class="block">
-												<div class="starbox small ghosting"> </div>
+												<div class="starbox small ghosting" data-start-value="4.2" data-button-count="5"> </div>
+											</div>
+											<div class="product-meta">
+												<span class="product-rating">4.2/5 rating</span>
+												<span class="product-stock low-stock">Only 2 Left</span>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -1066,6 +1131,62 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					},200);
 				}
 			}catch(e){}
+		})();
+	</script>
+	<script>
+		(function () {
+			var cards = Array.prototype.slice.call(document.querySelectorAll('.product-card'));
+			if (!cards.length) return;
+
+			var searchInput = document.getElementById('productSearch');
+			var categorySelect = document.getElementById('categoryFilter');
+			var minPriceInput = document.getElementById('minPriceFilter');
+			var maxPriceInput = document.getElementById('maxPriceFilter');
+			var clearButton = document.getElementById('clearProductFilters');
+			var resultsSummary = document.getElementById('productResultsSummary');
+
+			function normalise(value) {
+				return (value || '').toLowerCase();
+			}
+
+			function updateProducts() {
+				var searchTerm = normalise(searchInput.value);
+				var selectedCategory = categorySelect.value;
+				var minPrice = parseFloat(minPriceInput.value);
+				var maxPrice = parseFloat(maxPriceInput.value);
+				var visibleCount = 0;
+
+				cards.forEach(function (card) {
+					var name = normalise(card.getAttribute('data-name'));
+					var category = card.getAttribute('data-category');
+					var price = parseFloat(card.getAttribute('data-price'));
+					var matchesSearch = !searchTerm || name.indexOf(searchTerm) !== -1;
+					var matchesCategory = selectedCategory === 'all' || category === selectedCategory;
+					var matchesMin = isNaN(minPrice) || price >= minPrice;
+					var matchesMax = isNaN(maxPrice) || price <= maxPrice;
+					var isVisible = matchesSearch && matchesCategory && matchesMin && matchesMax;
+
+					card.style.display = isVisible ? '' : 'none';
+					if (isVisible) visibleCount += 1;
+				});
+
+				resultsSummary.textContent = visibleCount === 1 ? 'Showing 1 product' : 'Showing ' + visibleCount + ' products';
+			}
+
+			[searchInput, categorySelect, minPriceInput, maxPriceInput].forEach(function (field) {
+				field.addEventListener('input', updateProducts);
+				field.addEventListener('change', updateProducts);
+			});
+
+			clearButton.addEventListener('click', function () {
+				searchInput.value = '';
+				categorySelect.value = 'all';
+				minPriceInput.value = '';
+				maxPriceInput.value = '';
+				updateProducts();
+			});
+
+			updateProducts();
 		})();
 	</script>
 	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
