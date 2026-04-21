@@ -6,20 +6,47 @@ const nodemailer = require('nodemailer');
 const app = express();
 app.use(bodyParser.json());
 
+let isShuttingDown = false;
+let server;
+
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
+  next();
+});
+
+const asyncHandler = (fn) => (req, res, next) =>
+  Promise.resolve(fn(req, res, next)).catch(next);
+
 // ---------------- DB CONNECTION ----------------
 const dbConfig = {
+  connectionString: process.env.DB_URL || process.env.DATABASE_URL,
   user: process.env.DB_USER || process.env.POSTGRES_USER || 'postgres',
   host: process.env.DB_HOST || process.env.POSTGRES_HOST || 'postgres',
   database: process.env.DB_NAME || process.env.POSTGRES_DB || 'bigstore',
   password: process.env.DB_PASSWORD || process.env.POSTGRES_PASSWORD || 'password',
   port: parseInt(process.env.DB_PORT || process.env.POSTGRES_PORT || '5432', 10),
+  max: parseInt(process.env.DB_POOL_MAX || '10', 10),
+  idleTimeoutMillis: parseInt(process.env.DB_IDLE_TIMEOUT_MS || '30000', 10),
+  connectionTimeoutMillis: parseInt(process.env.DB_CONNECTION_TIMEOUT_MS || '2000', 10),
 };
 
+if (dbConfig.connectionString) {
+  delete dbConfig.user;
+  delete dbConfig.host;
+  delete dbConfig.database;
+  delete dbConfig.password;
+  delete dbConfig.port;
+}
+
 console.log('DB config:', {
+  connectionString: dbConfig.connectionString ? '[set]' : '[not set]',
   user: dbConfig.user,
   host: dbConfig.host,
   database: dbConfig.database,
   port: dbConfig.port,
+  max: dbConfig.max,
+  idleTimeoutMillis: dbConfig.idleTimeoutMillis,
+  connectionTimeoutMillis: dbConfig.connectionTimeoutMillis,
 });
 
 const pool = new Pool(dbConfig);
@@ -28,6 +55,18 @@ pool.on('error', (err) => {
   console.error('Unexpected PostgreSQL error on idle client', err);
 });
 
+const smtpTransporter = process.env.SMTP_USER && process.env.SMTP_PASS
+  ? nodemailer.createTransport({
+      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      port: parseInt(process.env.SMTP_PORT || '587', 10),
+      secure: false,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    })
+  : null;
+
 const DB_CONNECT_RETRIES = parseInt(process.env.DB_CONNECT_RETRIES || '12', 10);
 const DB_CONNECT_DELAY_MS = parseInt(process.env.DB_CONNECT_DELAY_MS || '5000', 10);
 
@@ -35,7 +74,7 @@ async function waitForDatabase() {
   for (let attempt = 1; attempt <= DB_CONNECT_RETRIES; attempt++) {
     try {
       await pool.query('SELECT 1');
-      console.log(`✅ Database connected on attempt ${attempt}`);
+      console.log(`Database connected on attempt ${attempt}`);
       return;
     } catch (err) {
       const message = err.message || err.toString();
@@ -164,7 +203,7 @@ async function initializeDatabase() {
           u.id,
           (o.payload->>'total')::NUMERIC,
           o.payload->'products',
-          NULLIF(o.payload->>'verified_at','')::TIMESTAMP,
+          NULLIF(o.payload->>'verified_at', '')::TIMESTAMP,
           o.payload->>'verified_by',
           o.created_at
         FROM orders o
@@ -195,10 +234,10 @@ async function initializeDatabase() {
     $$;
   `);
 
-  console.log("✅ Tables ready");
+  console.log('Tables ready');
 }
 
-// ---------------- SEND OTP ----------------
+// ---------------- INFO ----------------
 app.get('/api', (_req, res) => {
   return res.json({
     ok: true,
@@ -210,7 +249,8 @@ app.get('/api', (_req, res) => {
   });
 });
 
-app.post('/api/send-otp', async (req, res) => {
+// ---------------- SEND OTP ----------------
+app.post('/api/send-otp', asyncHandler(async (req, res) => {
   const { mobile } = req.body;
 
   if (!mobile) {
@@ -227,201 +267,225 @@ app.post('/api/send-otp', async (req, res) => {
 
   console.log('[SEND OTP] query params:', { mobile, otp });
 
-  try {
-    await pool.query(insertOtpQuery, [mobile, otp]);
+  await pool.query(insertOtpQuery, [mobile, otp]);
 
-    console.log('[OTP SAVED]', mobile, otp);
+  console.log('[OTP SAVED]', mobile, otp);
 
-    return res.json({ ok: true, demoOtp: otp });
-
-  } catch (err) {
-    console.error('db otp save error:', err);
-    return res.status(500).json({ error: 'db_error' });
-  }
-});
+  return res.json({ ok: true, demoOtp: otp });
+}));
 
 // ---------------- VERIFY OTP ----------------
-app.post('/api/verify-otp', async (req, res) => {
+app.post('/api/verify-otp', asyncHandler(async (req, res) => {
   const { mobile, otp, order } = req.body;
 
   if (!mobile || !otp) {
     return res.status(400).json({ error: 'mobile and otp required' });
   }
 
-  try {
-    const r = await pool.query(
-      'SELECT otp, expires_at FROM otps WHERE mobile = $1',
-      [mobile]
-    );
+  const otpResult = await pool.query(
+    'SELECT otp, expires_at FROM otps WHERE mobile = $1',
+    [mobile]
+  );
 
-    if (!r.rows.length) {
-      return res.status(400).json({ error: 'no_otp' });
-    }
-
-    const rec = r.rows[0];
-
-    console.log('[VERIFY OTP] mobile=', mobile, 'expected=', rec.otp, 'received=', otp, 'expires_at=', rec.expires_at);
-
-    // expiry check
-    const expiresAt = rec.expires_at instanceof Date
-      ? rec.expires_at.getTime()
-      : Date.parse(rec.expires_at);
-
-    if (!Number.isFinite(expiresAt) || Date.now() > expiresAt) {
-      await pool.query('DELETE FROM otps WHERE mobile=$1', [mobile]);
-      return res.status(400).json({ error: 'expired' });
-    }
-
-    // match check
-    if (rec.otp !== String(otp)) {
-      return res.status(400).json({ error: 'verify_failed' });
-    }
-
-    // delete OTP after success
-    await pool.query('DELETE FROM otps WHERE mobile=$1', [mobile]);
-
-    const shipping = order?.shipping || {};
-
-    // Insert or update user with shipping details immediately so they are always stored
-    const userResult = await pool.query(`
-      INSERT INTO users (mobile, name, email, address)
-      VALUES ($1, $2, $3, $4)
-      ON CONFLICT (mobile) DO UPDATE SET
-        name = COALESCE(EXCLUDED.name, users.name),
-        email = COALESCE(EXCLUDED.email, users.email),
-        address = COALESCE(EXCLUDED.address, users.address)
-      RETURNING id
-    `, [
-      mobile,
-      shipping.name || null,
-      shipping.email || null,
-      shipping.address || null
-    ]);
-
-    const userId = userResult.rows[0].id;
-
-    // Insert login
-    await pool.query(`
-      INSERT INTO logins (user_id) VALUES ($1)
-    `, [userId]);
-
-    // save order
-    if (order && order.id) {
-      await pool.query(`
-        INSERT INTO orders (transaction_id, user_id, amount, products, verified_at, verified_by, created_at)
-        VALUES ($1, $2, $3, $4, NOW(), $5, $6)
-        ON CONFLICT (transaction_id) DO NOTHING
-      `, [
-        order.id,
-        userId,
-        order.total,
-        JSON.stringify(order.products || []),
-        mobile,
-        order.date ? new Date(order.date) : new Date()
-      ]);
-    }
-
-    return res.json({ ok: true, orderId: order?.id || null });
-
-  } catch (e) {
-    console.error('verify-otp error', e);
-    return res.status(500).json({ error: 'verify_failed' });
+  if (!otpResult.rows.length) {
+    return res.status(400).json({ error: 'no_otp' });
   }
-});
+
+  const rec = otpResult.rows[0];
+  console.log('[VERIFY OTP] mobile=', mobile, 'expected=', rec.otp, 'received=', otp, 'expires_at=', rec.expires_at);
+
+  const expiresAt = rec.expires_at instanceof Date
+    ? rec.expires_at.getTime()
+    : Date.parse(rec.expires_at);
+
+  if (!Number.isFinite(expiresAt) || Date.now() > expiresAt) {
+    await pool.query('DELETE FROM otps WHERE mobile = $1', [mobile]);
+    return res.status(400).json({ error: 'expired' });
+  }
+
+  if (rec.otp !== String(otp)) {
+    return res.status(400).json({ error: 'verify_failed' });
+  }
+
+  await pool.query('DELETE FROM otps WHERE mobile = $1', [mobile]);
+
+  const shipping = order?.shipping || {};
+
+  const userResult = await pool.query(`
+    INSERT INTO users (mobile, name, email, address)
+    VALUES ($1, $2, $3, $4)
+    ON CONFLICT (mobile) DO UPDATE SET
+      name = COALESCE(EXCLUDED.name, users.name),
+      email = COALESCE(EXCLUDED.email, users.email),
+      address = COALESCE(EXCLUDED.address, users.address)
+    RETURNING id
+  `, [
+    mobile,
+    shipping.name || null,
+    shipping.email || null,
+    shipping.address || null,
+  ]);
+
+  const userId = userResult.rows[0].id;
+
+  await pool.query(`
+    INSERT INTO logins (user_id) VALUES ($1)
+  `, [userId]);
+
+  if (order && order.id) {
+    await pool.query(`
+      INSERT INTO orders (transaction_id, user_id, amount, products, verified_at, verified_by, created_at)
+      VALUES ($1, $2, $3, $4, NOW(), $5, $6)
+      ON CONFLICT (transaction_id) DO NOTHING
+    `, [
+      order.id,
+      userId,
+      order.total,
+      JSON.stringify(order.products || []),
+      mobile,
+      order.date ? new Date(order.date) : new Date(),
+    ]);
+  }
+
+  return res.json({ ok: true, orderId: order?.id || null });
+}));
 
 // ---------------- SEND EMAIL (OPTIONAL) ----------------
-app.post('/api/send-email', async (req, res) => {
+app.post('/api/send-email', asyncHandler(async (req, res) => {
   const { to, subject, text, html } = req.body || {};
-  if (!to) return res.status(400).json({ error: 'to required' });
 
-  try {
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: process.env.SMTP_PORT || 587,
-      secure: false,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to,
-      subject,
-      text,
-      html,
-    });
-
-    return res.json({ ok: true });
-
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: 'send_failed' });
+  if (!to) {
+    return res.status(400).json({ error: 'to required' });
   }
-});
+
+  if (!smtpTransporter) {
+    return res.status(503).json({ error: 'email_not_configured' });
+  }
+
+  smtpTransporter.sendMail({
+    from: process.env.SMTP_USER,
+    to,
+    subject,
+    text,
+    html,
+  }).catch((err) => {
+    console.error('send-email background error', err);
+  });
+
+  return res.status(202).json({ ok: true, queued: true });
+}));
 
 // ---------------- ORDERS LIST ----------------
-app.get('/api/orders', async (_req, res) => {
-  try {
-    const result = await pool.query(`
-      SELECT o.id, o.transaction_id, o.amount, o.status, o.products, o.created_at, o.verified_at, o.verified_by,
-             u.name, u.email, u.mobile, u.address
-      FROM orders o
-      JOIN users u ON o.user_id = u.id
-      ORDER BY o.created_at DESC LIMIT 100
-    `);
-    return res.json({ ok: true, orders: result.rows });
-  } catch (err) {
-    console.error('orders fetch error', err);
-    return res.status(500).json({ error: 'orders_fetch_failed' });
-  }
-});
+app.get('/api/orders', asyncHandler(async (_req, res) => {
+  const result = await pool.query(`
+    SELECT o.id, o.transaction_id, o.amount, o.status, o.products, o.created_at, o.verified_at, o.verified_by,
+           u.name, u.email, u.mobile, u.address
+    FROM orders o
+    JOIN users u ON o.user_id = u.id
+    ORDER BY o.created_at DESC LIMIT 100
+  `);
+
+  return res.json({ ok: true, orders: result.rows });
+}));
 
 // ---------------- USERS ANALYTICS ----------------
-app.get('/api/users-analytics', async (_req, res) => {
-  try {
-    const result = await pool.query(`
-      SELECT 
-        u.name,
-        u.email,
-        u.mobile,
-        u.address,
-        COUNT(DISTINCT l.id) AS login_count,
-        COUNT(DISTINCT o.id) AS order_count,
-        COALESCE(SUM(o.amount), 0) AS total_amount
-      FROM users u
-      LEFT JOIN logins l ON u.id = l.user_id
-      LEFT JOIN orders o ON u.id = o.user_id
-      GROUP BY u.id
-      ORDER BY total_amount DESC
-    `);
-    return res.json({ ok: true, analytics: result.rows });
-  } catch (err) {
-    console.error('analytics fetch error', err);
-    return res.status(500).json({ error: 'analytics_fetch_failed' });
+app.get('/api/users-analytics', asyncHandler(async (_req, res) => {
+  const result = await pool.query(`
+    SELECT
+      u.name,
+      u.email,
+      u.mobile,
+      u.address,
+      COUNT(DISTINCT l.id) AS login_count,
+      COUNT(DISTINCT o.id) AS order_count,
+      COALESCE(SUM(o.amount), 0) AS total_amount
+    FROM users u
+    LEFT JOIN logins l ON u.id = l.user_id
+    LEFT JOIN orders o ON u.id = o.user_id
+    GROUP BY u.id
+    ORDER BY total_amount DESC
+  `);
+
+  return res.json({ ok: true, analytics: result.rows });
+}));
+
+// ---------------- HEALTH CHECKS ----------------
+app.get('/health', (_req, res) => {
+  if (isShuttingDown) {
+    return res.status(503).send('SHUTTING_DOWN');
   }
+
+  return res.status(200).send('OK');
 });
 
-// ---------------- HEALTH CHECK ----------------
-app.get('/api/health', async (_req, res) => {
-  try {
-    await pool.query('SELECT 1');
-    return res.json({ ok: true, status: 'healthy' });
-  } catch (err) {
-    console.error('api health error', err);
-    return res.status(503).json({ ok: false, error: 'db_unavailable' });
+app.get('/api/health', asyncHandler(async (_req, res) => {
+  if (isShuttingDown) {
+    return res.status(503).json({ ok: false, error: 'shutting_down' });
   }
+
+  await pool.query('SELECT 1');
+  return res.json({ ok: true, status: 'healthy' });
+}));
+
+app.get('/readyz', asyncHandler(async (_req, res) => {
+  if (isShuttingDown) {
+    return res.status(503).json({ ok: false, error: 'shutting_down' });
+  }
+
+  await pool.query('SELECT 1');
+  return res.json({ ok: true, status: 'ready' });
+}));
+
+app.get('/healthz', asyncHandler(async (_req, res) => {
+  if (isShuttingDown) {
+    return res.status(503).json({ ok: false, error: 'shutting_down' });
+  }
+
+  await pool.query('SELECT 1');
+  return res.json({ ok: true });
+}));
+
+app.use((err, req, res, _next) => {
+  console.error(`Unhandled error for ${req.method} ${req.originalUrl}`, err);
+
+  if (res.headersSent) {
+    return;
+  }
+
+  if (err && err.code && String(err.code).startsWith('23')) {
+    return res.status(409).json({ error: 'conflict' });
+  }
+
+  return res.status(500).json({ error: 'Internal Server Error' });
 });
 
-app.get('/healthz', async (_req, res) => {
-  try {
-    await pool.query('SELECT 1');
-    return res.json({ ok: true });
-  } catch (err) {
-    console.error('healthz error', err);
-    return res.status(503).json({ ok: false, error: 'db_unavailable' });
+async function shutdown(signal) {
+  if (isShuttingDown) {
+    return;
   }
+
+  isShuttingDown = true;
+  console.log(`${signal} received, shutting down gracefully...`);
+
+  try {
+    if (server) {
+      await new Promise((resolve) => server.close(resolve));
+    }
+
+    await pool.end();
+    process.exit(0);
+  } catch (err) {
+    console.error('Graceful shutdown failed', err);
+    process.exit(1);
+  }
+}
+
+process.on('SIGTERM', () => {
+  shutdown('SIGTERM');
+});
+
+process.on('SIGINT', () => {
+  shutdown('SIGINT');
 });
 
 // ---------------- START SERVER ----------------
@@ -429,7 +493,7 @@ const port = process.env.PORT || 3000;
 
 initializeDatabase()
   .then(() => {
-    app.listen(port, () => console.log('🚀 Big Store API running on port', port));
+    server = app.listen(port, () => console.log('Big Store API running on port', port));
   })
   .catch((err) => {
     console.error('Failed to start server because database initialization failed:', err);
