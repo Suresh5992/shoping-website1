@@ -1,6 +1,7 @@
 # Big Store API
 
 The `backend/` folder contains the Express API server for the Big Store application
+test
 
 ## What it does
 
