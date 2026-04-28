@@ -1,0 +1,6 @@
+Forwarding from 127.0.0.1:3000 -> 3000
+Forwarding from [::1]:3000 -> 3000
+Handling connection for 3000
+Handling connection for 3000
+E0417 20:17:22.953440  147132 portforward.go:424] "Unhandled Error" err="an error occurred forwarding 3000 -> 3000: error forwarding port 3000 to pod b499fafb0848e4b3473d3ba8710a17b181e3db7f4b837042f7b13650f82901c6, uid : Error response from daemon: No such container: b499fafb0848e4b3473d3ba8710a17b181e3db7f4b837042f7b13650f82901c6"
+error: lost connection to pod

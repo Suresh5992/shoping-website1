@@ -1,0 +1,11 @@
+Forwarding from 127.0.0.1:3000 -> 3000
+Forwarding from [::1]:3000 -> 3000
+Handling connection for 3000
+Handling connection for 3000
+E0421 14:37:10.428286  332061 portforward.go:424] "Unhandled Error" err=<
+	an error occurred forwarding 3000 -> 3000: error forwarding port 3000 to pod 4c2dec43545075e8e7ca1e7478c6744e3ee37bf2d48972aeb66a287ea7a1079a, uid : exit status 1: 2026/04/21 14:37:10 socat[105500] E connect(5, AF=2 127.0.0.1:3000, 16): Connection refused
+ >
+E0421 14:37:10.429768  332061 portforward.go:424] "Unhandled Error" err=<
+	an error occurred forwarding 3000 -> 3000: error forwarding port 3000 to pod 4c2dec43545075e8e7ca1e7478c6744e3ee37bf2d48972aeb66a287ea7a1079a, uid : exit status 1: 2026/04/21 14:37:10 socat[105501] E connect(5, AF=2 127.0.0.1:3000, 16): Connection refused
+ >
+error: lost connection to pod

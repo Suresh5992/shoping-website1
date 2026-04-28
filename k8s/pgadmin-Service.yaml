@@ -12,5 +12,5 @@ spec:
 
   ports:
     - port: 80
-      targetPort: 80
-      nodePort: 30008
+      targetPort: 5050  # or 80 depending on your container
+      nodePort: 30008    # keep this in valid range

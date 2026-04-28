@@ -9,8 +9,6 @@ spec:
   - host: shop.local
     http:
       paths:
-
-      # 🔥 API FIRST (important)
       - path: /api
         pathType: Prefix
         backend:
@@ -19,20 +17,18 @@ spec:
             port:
               number: 3000
 
-      # frontend AFTER
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend
-            port:
-              number: 80
-
-      # pgadmin
       - path: /admin
         pathType: Prefix
         backend:
           service:
             name: pgadmin
+            port:
+              number: 80
+
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
             port:
               number: 80

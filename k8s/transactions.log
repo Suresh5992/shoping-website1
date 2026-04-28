@@ -2,3 +2,2738 @@
 📩 OTP received: 
 ✅ Response: 
 --------------------------------------
+🚀 Starting transaction: txn-24831-1
+   customer: Grace <grace422@gmail.com>
+   mobile: 7216742226
+   item: Backpack x4 @ 90
+   total: 360
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31030-1
+   customer: Eve <eve490@gmail.com>
+   mobile: 7477079816
+   item: Running Shoes x3 @ 78
+   total: 234
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-14388-2
+   customer: Carol <carol289@gmail.com>
+   mobile: 7177692375
+   item: Water Bottle x5 @ 61
+   total: 305
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8891-2
+   customer: Jack <jack951@gmail.com>
+   mobile: 7278130027
+   item: Backpack x4 @ 95
+   total: 380
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-4443-3
+   customer: Harry <harry918@gmail.com>
+   mobile: 7080797296
+   item: Running Shoes x1 @ 72
+   total: 72
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-32356-3
+   customer: Frank <frank729@gmail.com>
+   mobile: 7137519106
+   item: Laptop x3 @ 70
+   total: 210
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-591-4
+   customer: Bob <bob814@gmail.com>
+   mobile: 7188415320
+   item: Coffee Maker x3 @ 26
+   total: 78
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-22659-4
+   customer: Iris <iris230@gmail.com>
+   mobile: 7504151986
+   item: Headphones x3 @ 75
+   total: 225
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16738-5
+   customer: Bob <bob657@gmail.com>
+   mobile: 7014728878
+   item: Wireless Mouse x2 @ 47
+   total: 94
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-20609-6
+   customer: Jack <jack208@gmail.com>
+   mobile: 7098128768
+   item: Backpack x2 @ 63
+   total: 126
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-22446-6
+   customer: Carol <carol988@gmail.com>
+   mobile: 7222847147
+   item: Laptop x5 @ 18
+   total: 90
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31666-7
+   customer: Harry <harry766@gmail.com>
+   mobile: 7573368016
+   item: Keyboard x2 @ 10
+   total: 20
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23135-7
+   customer: Harry <harry515@gmail.com>
+   mobile: 7289804168
+   item: Laptop x2 @ 25
+   total: 50
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8267-8
+   customer: Iris <iris729@gmail.com>
+   mobile: 7377928480
+   item: Headphones x1 @ 58
+   total: 58
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11897-8
+   customer: Harry <harry310@gmail.com>
+   mobile: 7273458500
+   item: Coffee Maker x2 @ 47
+   total: 94
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11826-9
+   customer: Jack <jack522@gmail.com>
+   mobile: 7209686848
+   item: Backpack x5 @ 60
+   total: 300
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5260-9
+   customer: Dave <dave889@gmail.com>
+   mobile: 7034769875
+   item: Headphones x3 @ 71
+   total: 213
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-15149-10
+   customer: Bob <bob756@gmail.com>
+   mobile: 7020066061
+   item: Smartphone x5 @ 60
+   total: 300
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-565-10
+   customer: Alice <alice897@gmail.com>
+   mobile: 7129377017
+   item: Backpack x2 @ 18
+   total: 36
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-7105-11
+   customer: Carol <carol164@gmail.com>
+   mobile: 7392469888
+   item: Keyboard x3 @ 59
+   total: 177
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-25209-12
+   customer: Carol <carol449@gmail.com>
+   mobile: 7333413960
+   item: Keyboard x4 @ 48
+   total: 192
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16803-12
+   customer: Jack <jack929@gmail.com>
+   mobile: 7269885795
+   item: Wireless Mouse x3 @ 27
+   total: 81
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9886-13
+   customer: Frank <frank477@gmail.com>
+   mobile: 7492660120
+   item: Laptop x1 @ 12
+   total: 12
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30765-13
+   customer: Bob <bob323@gmail.com>
+   mobile: 7011956000
+   item: Wireless Mouse x3 @ 31
+   total: 93
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24705-14
+   customer: Bob <bob230@gmail.com>
+   mobile: 7560046948
+   item: Keyboard x3 @ 44
+   total: 132
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-26652-14
+   customer: Dave <dave41@gmail.com>
+   mobile: 7057460104
+   item: Backpack x5 @ 37
+   total: 185
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9121-15
+   customer: Grace <grace518@gmail.com>
+   mobile: 7462429005
+   item: Laptop x4 @ 85
+   total: 340
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2565-16
+   customer: Jack <jack899@gmail.com>
+   mobile: 7118849248
+   item: Wireless Mouse x5 @ 67
+   total: 335
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8309-18
+   customer: Jack <jack545@gmail.com>
+   mobile: 7292196968
+   item: Coffee Maker x3 @ 16
+   total: 48
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31506-19
+   customer: Alice <alice613@gmail.com>
+   mobile: 7192115800
+   item: Smartphone x4 @ 61
+   total: 244
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16872-19
+   customer: Carol <carol810@gmail.com>
+   mobile: 7456855420
+   item: Smartphone x3 @ 68
+   total: 204
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-7963-20
+   customer: Jack <jack534@gmail.com>
+   mobile: 7035106546
+   item: Smartphone x5 @ 57
+   total: 285
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23501-21
+   customer: Eve <eve966@gmail.com>
+   mobile: 7071893136
+   item: Keyboard x4 @ 72
+   total: 288
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-1912-22
+   customer: Alice <alice878@gmail.com>
+   mobile: 7196527888
+   item: Keyboard x3 @ 52
+   total: 156
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30164-23
+   customer: Frank <frank490@gmail.com>
+   mobile: 7322162336
+   item: Headphones x4 @ 62
+   total: 248
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-20219-23
+   customer: Bob <bob397@gmail.com>
+   mobile: 7541590480
+   item: Headphones x4 @ 99
+   total: 396
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-4907-24
+   customer: Harry <harry517@gmail.com>
+   mobile: 7245700024
+   item: Running Shoes x4 @ 35
+   total: 140
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-29847-24
+   customer: Iris <iris364@gmail.com>
+   mobile: 7197015000
+   item: Desk Lamp x3 @ 38
+   total: 114
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-20664-25
+   customer: Carol <carol151@gmail.com>
+   mobile: 7565720484
+   item: Headphones x3 @ 83
+   total: 249
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-21379-26
+   customer: Iris <iris104@gmail.com>
+   mobile: 7498132620
+   item: Running Shoes x1 @ 21
+   total: 21
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-17216-26
+   customer: Iris <iris962@gmail.com>
+   mobile: 7307406952
+   item: Coffee Maker x5 @ 93
+   total: 465
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-27108-27
+   customer: Grace <grace160@gmail.com>
+   mobile: 7096334704
+   item: Desk Lamp x1 @ 65
+   total: 65
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16192-28
+   customer: Alice <alice827@gmail.com>
+   mobile: 7172285194
+   item: Backpack x3 @ 33
+   total: 99
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3996-28
+   customer: Iris <iris157@gmail.com>
+   mobile: 7067602001
+   item: Headphones x1 @ 92
+   total: 92
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8759-29
+   customer: Carol <carol644@gmail.com>
+   mobile: 7365723414
+   item: Wireless Mouse x4 @ 80
+   total: 320
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2211-30
+   customer: Grace <grace198@gmail.com>
+   mobile: 7016505601
+   item: Smartphone x3 @ 80
+   total: 240
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9680-31
+   customer: Alice <alice32@gmail.com>
+   mobile: 7600161310
+   item: Coffee Maker x4 @ 94
+   total: 376
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-29660-31
+   customer: Jack <jack745@gmail.com>
+   mobile: 7797018658
+   item: Laptop x5 @ 71
+   total: 355
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-19166-32
+   customer: Grace <grace385@gmail.com>
+   mobile: 7694907250
+   item: Laptop x5 @ 79
+   total: 395
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16048-33
+   customer: Harry <harry683@gmail.com>
+   mobile: 7567893150
+   item: Desk Lamp x4 @ 47
+   total: 188
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13889-33
+   customer: Bob <bob708@gmail.com>
+   mobile: 7053401677
+   item: Headphones x5 @ 32
+   total: 160
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31862-34
+   customer: Frank <frank642@gmail.com>
+   mobile: 7636021555
+   item: Desk Lamp x4 @ 79
+   total: 316
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11705-35
+   customer: Jack <jack190@gmail.com>
+   mobile: 7548716960
+   item: Laptop x1 @ 45
+   total: 45
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23083-36
+   customer: Iris <iris549@gmail.com>
+   mobile: 7377997035
+   item: Coffee Maker x4 @ 51
+   total: 204
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16133-36
+   customer: Dave <dave711@gmail.com>
+   mobile: 7040213480
+   item: Desk Lamp x2 @ 63
+   total: 126
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16906-37
+   customer: Bob <bob71@gmail.com>
+   mobile: 7432310032
+   item: Laptop x1 @ 92
+   total: 92
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8989-38
+   customer: Carol <carol0@gmail.com>
+   mobile: 7042619068
+   item: Backpack x1 @ 17
+   total: 17
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-14569-39
+   customer: Harry <harry811@gmail.com>
+   mobile: 7177412797
+   item: Backpack x2 @ 46
+   total: 92
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-18185-39
+   customer: Frank <frank439@gmail.com>
+   mobile: 7205980981
+   item: Backpack x3 @ 99
+   total: 297
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12506-40
+   customer: Iris <iris223@gmail.com>
+   mobile: 7091949970
+   item: Water Bottle x5 @ 99
+   total: 495
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30311-40
+   customer: Eve <eve340@gmail.com>
+   mobile: 7222586870
+   item: Backpack x1 @ 95
+   total: 95
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-565-41
+   customer: Dave <dave42@gmail.com>
+   mobile: 7231664025
+   item: Laptop x5 @ 67
+   total: 335
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-10907-41
+   customer: Carol <carol122@gmail.com>
+   mobile: 7327411000
+   item: Headphones x5 @ 64
+   total: 320
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13381-42
+   customer: Alice <alice310@gmail.com>
+   mobile: 7035224208
+   item: Laptop x5 @ 28
+   total: 140
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-19671-43
+   customer: Harry <harry0@gmail.com>
+   mobile: 7023584771
+   item: Water Bottle x3 @ 23
+   total: 69
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3296-43
+   customer: Jack <jack868@gmail.com>
+   mobile: 7123242733
+   item: Smartphone x5 @ 23
+   total: 115
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5250-44
+   customer: Eve <eve455@gmail.com>
+   mobile: 7118105196
+   item: Keyboard x5 @ 32
+   total: 160
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-32083-45
+   customer: Bob <bob929@gmail.com>
+   mobile: 7491173608
+   item: Headphones x3 @ 57
+   total: 171
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-28668-45
+   customer: Iris <iris267@gmail.com>
+   mobile: 7145472355
+   item: Smartphone x3 @ 94
+   total: 282
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-25369-46
+   customer: Harry <harry741@gmail.com>
+   mobile: 7022301510
+   item: Coffee Maker x3 @ 93
+   total: 279
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-15288-46
+   customer: Dave <dave454@gmail.com>
+   mobile: 7234086318
+   item: Coffee Maker x1 @ 96
+   total: 96
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2176-47
+   customer: Grace <grace339@gmail.com>
+   mobile: 7040475017
+   item: Desk Lamp x2 @ 66
+   total: 132
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9976-48
+   customer: Jack <jack831@gmail.com>
+   mobile: 7156620224
+   item: Keyboard x5 @ 36
+   total: 180
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31007-48
+   customer: Dave <dave980@gmail.com>
+   mobile: 7024276224
+   item: Coffee Maker x5 @ 10
+   total: 50
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3906-49
+   customer: Dave <dave660@gmail.com>
+   mobile: 7202013572
+   item: Running Shoes x4 @ 91
+   total: 364
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-4901-50
+   customer: Iris <iris432@gmail.com>
+   mobile: 7305129136
+   item: Backpack x3 @ 98
+   total: 294
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-19165-50
+   customer: Iris <iris412@gmail.com>
+   mobile: 7184177224
+   item: Headphones x4 @ 16
+   total: 64
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8107-51
+   customer: Iris <iris956@gmail.com>
+   mobile: 7107805457
+   item: Wireless Mouse x3 @ 83
+   total: 249
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31024-52
+   customer: Iris <iris94@gmail.com>
+   mobile: 7816731860
+   item: Keyboard x3 @ 93
+   total: 279
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-14374-52
+   customer: Frank <frank972@gmail.com>
+   mobile: 7840545541
+   item: Smartphone x4 @ 83
+   total: 332
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16335-53
+   customer: Eve <eve754@gmail.com>
+   mobile: 7046239036
+   item: Water Bottle x5 @ 11
+   total: 55
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13143-54
+   customer: Dave <dave385@gmail.com>
+   mobile: 7461648502
+   item: Water Bottle x4 @ 22
+   total: 88
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30168-54
+   customer: Carol <carol231@gmail.com>
+   mobile: 7071828386
+   item: Keyboard x4 @ 77
+   total: 308
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-28617-55
+   customer: Grace <grace66@gmail.com>
+   mobile: 7058773078
+   item: Laptop x2 @ 34
+   total: 68
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2363-56
+   customer: Iris <iris715@gmail.com>
+   mobile: 7216845560
+   item: Desk Lamp x1 @ 63
+   total: 63
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-25943-57
+   customer: Jack <jack996@gmail.com>
+   mobile: 7258927060
+   item: Desk Lamp x4 @ 54
+   total: 216
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9181-58
+   customer: Jack <jack98@gmail.com>
+   mobile: 7144349502
+   item: Desk Lamp x3 @ 87
+   total: 261
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-6749-59
+   customer: Jack <jack462@gmail.com>
+   mobile: 7287482644
+   item: Water Bottle x2 @ 71
+   total: 142
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-22591-60
+   customer: Bob <bob52@gmail.com>
+   mobile: 7015783338
+   item: Wireless Mouse x4 @ 77
+   total: 308
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8387-61
+   customer: Iris <iris260@gmail.com>
+   mobile: 7025637456
+   item: Running Shoes x3 @ 24
+   total: 72
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-22432-62
+   customer: Carol <carol189@gmail.com>
+   mobile: 7364302600
+   item: Headphones x4 @ 42
+   total: 168
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-28090-63
+   customer: Jack <jack840@gmail.com>
+   mobile: 7255198125
+   item: Desk Lamp x1 @ 46
+   total: 46
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-7869-64
+   customer: Frank <frank290@gmail.com>
+   mobile: 7105540960
+   item: Coffee Maker x5 @ 85
+   total: 425
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12973-65
+   customer: Dave <dave54@gmail.com>
+   mobile: 7042020684
+   item: Desk Lamp x4 @ 27
+   total: 108
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23618-65
+   customer: Frank <frank840@gmail.com>
+   mobile: 7265072000
+   item: Backpack x4 @ 52
+   total: 208
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-17989-66
+   customer: Frank <frank569@gmail.com>
+   mobile: 7352993250
+   item: Laptop x1 @ 65
+   total: 65
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-29821-67
+   customer: Grace <grace926@gmail.com>
+   mobile: 7200330901
+   item: Running Shoes x5 @ 43
+   total: 215
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-6998-68
+   customer: Grace <grace433@gmail.com>
+   mobile: 7221516075
+   item: Backpack x3 @ 29
+   total: 87
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-20133-68
+   customer: Jack <jack843@gmail.com>
+   mobile: 7027625680
+   item: Laptop x3 @ 87
+   total: 261
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-25010-69
+   customer: Grace <grace79@gmail.com>
+   mobile: 7642992110
+   item: Keyboard x4 @ 51
+   total: 204
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-28030-70
+   customer: Frank <frank677@gmail.com>
+   mobile: 7139801545
+   item: Keyboard x5 @ 88
+   total: 440
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-32223-71
+   customer: Alice <alice624@gmail.com>
+   mobile: 7090533625
+   item: Backpack x1 @ 16
+   total: 16
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31448-71
+   customer: Jack <jack460@gmail.com>
+   mobile: 7141850485
+   item: Backpack x4 @ 62
+   total: 248
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8167-72
+   customer: Dave <dave70@gmail.com>
+   mobile: 7086297981
+   item: Running Shoes x5 @ 38
+   total: 190
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-29660-72
+   customer: Harry <harry195@gmail.com>
+   mobile: 7084124992
+   item: Wireless Mouse x1 @ 42
+   total: 42
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30738-73
+   customer: Alice <alice717@gmail.com>
+   mobile: 7220832388
+   item: Running Shoes x2 @ 13
+   total: 26
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13727-73
+   customer: Alice <alice662@gmail.com>
+   mobile: 7193749504
+   item: Backpack x5 @ 79
+   total: 395
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-28642-74
+   customer: Iris <iris686@gmail.com>
+   mobile: 7454410250
+   item: Running Shoes x4 @ 73
+   total: 292
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23381-74
+   customer: Grace <grace439@gmail.com>
+   mobile: 7170192340
+   item: Wireless Mouse x1 @ 17
+   total: 17
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13024-75
+   customer: Alice <alice124@gmail.com>
+   mobile: 7352227050
+   item: Laptop x2 @ 61
+   total: 122
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11367-76
+   customer: Carol <carol924@gmail.com>
+   mobile: 7676098010
+   item: Coffee Maker x4 @ 88
+   total: 352
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13831-76
+   customer: Frank <frank525@gmail.com>
+   mobile: 7001473920
+   item: Smartphone x4 @ 28
+   total: 112
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5204-77
+   customer: Iris <iris271@gmail.com>
+   mobile: 7257811917
+   item: Wireless Mouse x1 @ 81
+   total: 81
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8102-77
+   customer: Frank <frank132@gmail.com>
+   mobile: 7251698017
+   item: Coffee Maker x5 @ 89
+   total: 445
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-526-78
+   customer: Eve <eve926@gmail.com>
+   mobile: 7366856440
+   item: Keyboard x1 @ 23
+   total: 23
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2232-78
+   customer: Alice <alice622@gmail.com>
+   mobile: 7243032665
+   item: Keyboard x2 @ 50
+   total: 100
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9083-79
+   customer: Grace <grace101@gmail.com>
+   mobile: 7079412400
+   item: Keyboard x5 @ 59
+   total: 295
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-10238-80
+   customer: Iris <iris508@gmail.com>
+   mobile: 7427028342
+   item: Wireless Mouse x2 @ 59
+   total: 118
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-18158-81
+   customer: Eve <eve93@gmail.com>
+   mobile: 7056263237
+   item: Smartphone x4 @ 23
+   total: 92
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16465-82
+   customer: Frank <frank980@gmail.com>
+   mobile: 7029148973
+   item: Wireless Mouse x5 @ 61
+   total: 305
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-397-82
+   customer: Frank <frank200@gmail.com>
+   mobile: 7042966296
+   item: Running Shoes x4 @ 82
+   total: 328
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-7358-83
+   customer: Eve <eve148@gmail.com>
+   mobile: 7011066526
+   item: Keyboard x4 @ 64
+   total: 256
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12427-83
+   customer: Grace <grace355@gmail.com>
+   mobile: 7191007750
+   item: Coffee Maker x3 @ 86
+   total: 258
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-4015-84
+   customer: Dave <dave638@gmail.com>
+   mobile: 7119989780
+   item: Water Bottle x3 @ 50
+   total: 150
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-14636-84
+   customer: Jack <jack837@gmail.com>
+   mobile: 7160558282
+   item: Smartphone x5 @ 16
+   total: 80
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-18384-85
+   customer: Dave <dave5@gmail.com>
+   mobile: 7114163856
+   item: Keyboard x2 @ 62
+   total: 124
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30614-85
+   customer: Dave <dave100@gmail.com>
+   mobile: 7145148952
+   item: Water Bottle x4 @ 50
+   total: 200
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-17832-86
+   customer: Dave <dave874@gmail.com>
+   mobile: 7198862048
+   item: Water Bottle x3 @ 23
+   total: 69
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-1361-86
+   customer: Harry <harry291@gmail.com>
+   mobile: 7188998848
+   item: Headphones x5 @ 96
+   total: 480
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23514-87
+   customer: Bob <bob53@gmail.com>
+   mobile: 7552922461
+   item: Coffee Maker x5 @ 95
+   total: 475
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9719-88
+   customer: Carol <carol427@gmail.com>
+   mobile: 7063329488
+   item: Running Shoes x2 @ 55
+   total: 110
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-20947-88
+   customer: Grace <grace859@gmail.com>
+   mobile: 7167514760
+   item: Laptop x3 @ 73
+   total: 219
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3921-89
+   customer: Harry <harry642@gmail.com>
+   mobile: 7244159992
+   item: Water Bottle x1 @ 87
+   total: 87
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-7491-90
+   customer: Grace <grace451@gmail.com>
+   mobile: 7141134608
+   item: Desk Lamp x1 @ 62
+   total: 62
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-14026-90
+   customer: Eve <eve623@gmail.com>
+   mobile: 7006408376
+   item: Smartphone x1 @ 65
+   total: 65
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-15844-91
+   customer: Eve <eve985@gmail.com>
+   mobile: 7176178492
+   item: Water Bottle x4 @ 62
+   total: 248
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-4287-91
+   customer: Harry <harry588@gmail.com>
+   mobile: 7071062048
+   item: Headphones x5 @ 52
+   total: 260
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-17112-92
+   customer: Bob <bob61@gmail.com>
+   mobile: 7148156160
+   item: Backpack x1 @ 81
+   total: 81
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-27456-93
+   customer: Eve <eve297@gmail.com>
+   mobile: 7193305252
+   item: Wireless Mouse x3 @ 28
+   total: 84
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9656-93
+   customer: Carol <carol381@gmail.com>
+   mobile: 7008597334
+   item: Backpack x1 @ 58
+   total: 58
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-21980-94
+   customer: Dave <dave516@gmail.com>
+   mobile: 7704332908
+   item: Running Shoes x5 @ 62
+   total: 310
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12742-95
+   customer: Eve <eve96@gmail.com>
+   mobile: 7039288912
+   item: Backpack x2 @ 95
+   total: 190
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9069-95
+   customer: Harry <harry325@gmail.com>
+   mobile: 7053640952
+   item: Headphones x1 @ 39
+   total: 39
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31563-96
+   customer: Harry <harry713@gmail.com>
+   mobile: 7158068665
+   item: Backpack x2 @ 48
+   total: 96
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9419-97
+   customer: Alice <alice838@gmail.com>
+   mobile: 7076136091
+   item: Smartphone x3 @ 64
+   total: 192
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5777-97
+   customer: Grace <grace380@gmail.com>
+   mobile: 7215849760
+   item: Keyboard x4 @ 91
+   total: 364
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23931-98
+   customer: Harry <harry635@gmail.com>
+   mobile: 7120577332
+   item: Water Bottle x4 @ 40
+   total: 160
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30202-98
+   customer: Bob <bob558@gmail.com>
+   mobile: 7000865024
+   item: Smartphone x3 @ 65
+   total: 195
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2282-99
+   customer: Bob <bob801@gmail.com>
+   mobile: 7661479586
+   item: Smartphone x5 @ 31
+   total: 155
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-29491-99
+   customer: Grace <grace507@gmail.com>
+   mobile: 7092619342
+   item: Desk Lamp x3 @ 22
+   total: 66
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11015-100
+   customer: Harry <harry173@gmail.com>
+   mobile: 7202064000
+   item: Backpack x4 @ 32
+   total: 128
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30331-101
+   customer: Dave <dave281@gmail.com>
+   mobile: 7063031542
+   item: Headphones x3 @ 85
+   total: 255
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-10016-102
+   customer: Iris <iris395@gmail.com>
+   mobile: 7285696601
+   item: Smartphone x5 @ 10
+   total: 50
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-32176-102
+   customer: Harry <harry778@gmail.com>
+   mobile: 7160795080
+   item: Water Bottle x5 @ 99
+   total: 495
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31652-103
+   customer: Harry <harry420@gmail.com>
+   mobile: 7333618145
+   item: Coffee Maker x4 @ 82
+   total: 328
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-20747-104
+   customer: Harry <harry381@gmail.com>
+   mobile: 7325514544
+   item: Headphones x4 @ 11
+   total: 44
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-28658-105
+   customer: Iris <iris608@gmail.com>
+   mobile: 7023175480
+   item: Desk Lamp x4 @ 70
+   total: 280
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5814-105
+   customer: Jack <jack889@gmail.com>
+   mobile: 7032231424
+   item: Backpack x1 @ 65
+   total: 65
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9188-106
+   customer: Eve <eve392@gmail.com>
+   mobile: 7725218300
+   item: Wireless Mouse x5 @ 33
+   total: 165
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16899-107
+   customer: Harry <harry102@gmail.com>
+   mobile: 7135191250
+   item: Water Bottle x3 @ 23
+   total: 69
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-15649-107
+   customer: Jack <jack907@gmail.com>
+   mobile: 7121920617
+   item: Coffee Maker x5 @ 45
+   total: 225
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-27195-108
+   customer: Frank <frank93@gmail.com>
+   mobile: 7086710392
+   item: Laptop x5 @ 27
+   total: 135
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-27690-109
+   customer: Carol <carol30@gmail.com>
+   mobile: 7187542367
+   item: Headphones x2 @ 69
+   total: 138
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-22709-109
+   customer: Alice <alice540@gmail.com>
+   mobile: 7115963785
+   item: Smartphone x2 @ 21
+   total: 42
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24292-110
+   customer: Frank <frank825@gmail.com>
+   mobile: 7017159595
+   item: Running Shoes x5 @ 63
+   total: 315
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12990-111
+   customer: Jack <jack2@gmail.com>
+   mobile: 7204092616
+   item: Smartphone x3 @ 62
+   total: 186
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-19094-111
+   customer: Iris <iris673@gmail.com>
+   mobile: 7669971939
+   item: Desk Lamp x2 @ 94
+   total: 188
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-6297-112
+   customer: Bob <bob552@gmail.com>
+   mobile: 7122233460
+   item: Desk Lamp x1 @ 40
+   total: 40
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31180-113
+   customer: Bob <bob607@gmail.com>
+   mobile: 7026351169
+   item: Desk Lamp x5 @ 43
+   total: 215
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13595-113
+   customer: Frank <frank28@gmail.com>
+   mobile: 7333649604
+   item: Keyboard x2 @ 22
+   total: 44
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-32595-114
+   customer: Carol <carol529@gmail.com>
+   mobile: 7032337991
+   item: Laptop x1 @ 43
+   total: 43
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-15774-114
+   customer: Alice <alice813@gmail.com>
+   mobile: 7504728968
+   item: Laptop x2 @ 59
+   total: 118
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30533-115
+   customer: Harry <harry555@gmail.com>
+   mobile: 7214022965
+   item: Keyboard x5 @ 58
+   total: 290
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13594-116
+   customer: Harry <harry948@gmail.com>
+   mobile: 7599427305
+   item: Coffee Maker x3 @ 48
+   total: 144
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-17015-117
+   customer: Alice <alice143@gmail.com>
+   mobile: 7032769660
+   item: Desk Lamp x3 @ 78
+   total: 234
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23680-117
+   customer: Iris <iris736@gmail.com>
+   mobile: 7479073300
+   item: Keyboard x5 @ 28
+   total: 140
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-14271-118
+   customer: Jack <jack747@gmail.com>
+   mobile: 7759845463
+   item: Coffee Maker x5 @ 69
+   total: 345
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9850-119
+   customer: Jack <jack948@gmail.com>
+   mobile: 7000697928
+   item: Backpack x4 @ 74
+   total: 296
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3321-119
+   customer: Frank <frank742@gmail.com>
+   mobile: 7031243029
+   item: Desk Lamp x3 @ 72
+   total: 216
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24534-120
+   customer: Carol <carol566@gmail.com>
+   mobile: 7021714084
+   item: Smartphone x3 @ 94
+   total: 282
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3115-120
+   customer: Dave <dave967@gmail.com>
+   mobile: 7147950522
+   item: Keyboard x2 @ 77
+   total: 154
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-27505-121
+   customer: Harry <harry198@gmail.com>
+   mobile: 7351886564
+   item: Laptop x1 @ 60
+   total: 60
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13880-122
+   customer: Dave <dave612@gmail.com>
+   mobile: 7128085550
+   item: Laptop x2 @ 10
+   total: 20
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-26443-122
+   customer: Iris <iris102@gmail.com>
+   mobile: 7055919808
+   item: Backpack x3 @ 88
+   total: 264
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11423-123
+   customer: Grace <grace694@gmail.com>
+   mobile: 7118526564
+   item: Laptop x3 @ 30
+   total: 90
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-26822-124
+   customer: Alice <alice500@gmail.com>
+   mobile: 7475171632
+   item: Coffee Maker x2 @ 34
+   total: 68
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-22905-124
+   customer: Dave <dave199@gmail.com>
+   mobile: 7097472844
+   item: Smartphone x4 @ 29
+   total: 116
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30126-125
+   customer: Alice <alice315@gmail.com>
+   mobile: 7025883592
+   item: Headphones x1 @ 50
+   total: 50
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13491-125
+   customer: Jack <jack772@gmail.com>
+   mobile: 7143300964
+   item: Desk Lamp x5 @ 69
+   total: 345
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-14467-126
+   customer: Carol <carol590@gmail.com>
+   mobile: 7033919921
+   item: Desk Lamp x3 @ 82
+   total: 246
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-907-127
+   customer: Frank <frank994@gmail.com>
+   mobile: 7428959952
+   item: Laptop x4 @ 27
+   total: 108
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24397-127
+   customer: Frank <frank852@gmail.com>
+   mobile: 7131924596
+   item: Smartphone x3 @ 27
+   total: 81
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-4186-128
+   customer: Eve <eve540@gmail.com>
+   mobile: 7430147752
+   item: Backpack x1 @ 97
+   total: 97
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-18636-129
+   customer: Eve <eve596@gmail.com>
+   mobile: 7201368150
+   item: Wireless Mouse x4 @ 24
+   total: 96
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-10073-129
+   customer: Frank <frank619@gmail.com>
+   mobile: 7287305256
+   item: Coffee Maker x3 @ 92
+   total: 276
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8195-130
+   customer: Grace <grace672@gmail.com>
+   mobile: 7236548065
+   item: Desk Lamp x2 @ 16
+   total: 32
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9034-130
+   customer: Dave <dave207@gmail.com>
+   mobile: 7651481116
+   item: Running Shoes x3 @ 11
+   total: 33
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-15271-131
+   customer: Eve <eve381@gmail.com>
+   mobile: 7032448720
+   item: Headphones x1 @ 34
+   total: 34
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2788-131
+   customer: Frank <frank997@gmail.com>
+   mobile: 7185992097
+   item: Backpack x4 @ 72
+   total: 288
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12887-132
+   customer: Jack <jack716@gmail.com>
+   mobile: 7022514880
+   item: Smartphone x1 @ 28
+   total: 28
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9951-133
+   customer: Carol <carol903@gmail.com>
+   mobile: 7364743781
+   item: Keyboard x5 @ 14
+   total: 70
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5636-133
+   customer: Grace <grace655@gmail.com>
+   mobile: 7080581591
+   item: Laptop x3 @ 47
+   total: 141
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2085-134
+   customer: Alice <alice481@gmail.com>
+   mobile: 7220715425
+   item: Keyboard x3 @ 30
+   total: 90
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13900-134
+   customer: Iris <iris821@gmail.com>
+   mobile: 7012217744
+   item: Wireless Mouse x3 @ 53
+   total: 159
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24717-135
+   customer: Grace <grace620@gmail.com>
+   mobile: 7390127015
+   item: Wireless Mouse x3 @ 51
+   total: 153
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30355-135
+   customer: Jack <jack351@gmail.com>
+   mobile: 7197662080
+   item: Wireless Mouse x2 @ 15
+   total: 30
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24628-136
+   customer: Bob <bob447@gmail.com>
+   mobile: 7524466490
+   item: Smartphone x4 @ 44
+   total: 176
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23734-136
+   customer: Alice <alice6@gmail.com>
+   mobile: 7239812148
+   item: Smartphone x1 @ 25
+   total: 25
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-6643-137
+   customer: Alice <alice197@gmail.com>
+   mobile: 7591570111
+   item: Wireless Mouse x4 @ 81
+   total: 324
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5216-137
+   customer: Jack <jack688@gmail.com>
+   mobile: 7063871444
+   item: Smartphone x4 @ 60
+   total: 240
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16200-138
+   customer: Iris <iris31@gmail.com>
+   mobile: 7513771369
+   item: Wireless Mouse x2 @ 74
+   total: 148
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24611-138
+   customer: Alice <alice658@gmail.com>
+   mobile: 7222562002
+   item: Wireless Mouse x2 @ 22
+   total: 44
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8911-139
+   customer: Jack <jack277@gmail.com>
+   mobile: 7267873018
+   item: Coffee Maker x2 @ 22
+   total: 44
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-26847-139
+   customer: Harry <harry971@gmail.com>
+   mobile: 7516231346
+   item: Water Bottle x5 @ 36
+   total: 180
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-18719-140
+   customer: Iris <iris912@gmail.com>
+   mobile: 7658295000
+   item: Wireless Mouse x4 @ 32
+   total: 128
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-20794-140
+   customer: Carol <carol264@gmail.com>
+   mobile: 7156637728
+   item: Keyboard x2 @ 48
+   total: 96
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8151-141
+   customer: Jack <jack460@gmail.com>
+   mobile: 7358520799
+   item: Coffee Maker x3 @ 64
+   total: 192
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2501-142
+   customer: Dave <dave889@gmail.com>
+   mobile: 7334261832
+   item: Backpack x5 @ 77
+   total: 385
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-25378-142
+   customer: Bob <bob980@gmail.com>
+   mobile: 7217582702
+   item: Headphones x2 @ 53
+   total: 106
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23709-143
+   customer: Dave <dave545@gmail.com>
+   mobile: 7198189851
+   item: Running Shoes x2 @ 11
+   total: 22
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-4811-143
+   customer: Alice <alice687@gmail.com>
+   mobile: 7277235246
+   item: Laptop x4 @ 80
+   total: 320
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-6925-144
+   customer: Alice <alice797@gmail.com>
+   mobile: 7111497325
+   item: Water Bottle x4 @ 57
+   total: 228
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-19048-144
+   customer: Bob <bob68@gmail.com>
+   mobile: 7506327588
+   item: Wireless Mouse x4 @ 93
+   total: 372
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-18200-145
+   customer: Carol <carol451@gmail.com>
+   mobile: 7624440226
+   item: Desk Lamp x4 @ 12
+   total: 48
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-17528-145
+   customer: Carol <carol435@gmail.com>
+   mobile: 7271515330
+   item: Wireless Mouse x1 @ 24
+   total: 24
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-18904-146
+   customer: Frank <frank818@gmail.com>
+   mobile: 7356255549
+   item: Running Shoes x4 @ 21
+   total: 84
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-26192-147
+   customer: Harry <harry487@gmail.com>
+   mobile: 7027364113
+   item: Wireless Mouse x5 @ 75
+   total: 375
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-21703-148
+   customer: Alice <alice443@gmail.com>
+   mobile: 7415785996
+   item: Backpack x5 @ 70
+   total: 350
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13200-148
+   customer: Jack <jack459@gmail.com>
+   mobile: 7830176728
+   item: Laptop x2 @ 55
+   total: 110
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-29097-149
+   customer: Eve <eve859@gmail.com>
+   mobile: 7127012612
+   item: Backpack x4 @ 51
+   total: 204
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-21475-150
+   customer: Carol <carol481@gmail.com>
+   mobile: 7191617461
+   item: Coffee Maker x3 @ 12
+   total: 36
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11026-150
+   customer: Alice <alice22@gmail.com>
+   mobile: 7290252700
+   item: Wireless Mouse x2 @ 12
+   total: 24
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-20986-151
+   customer: Carol <carol816@gmail.com>
+   mobile: 7100997120
+   item: Headphones x1 @ 91
+   total: 91
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-32649-151
+   customer: Harry <harry87@gmail.com>
+   mobile: 7288731520
+   item: Running Shoes x5 @ 23
+   total: 115
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9231-152
+   customer: Bob <bob656@gmail.com>
+   mobile: 7003284469
+   item: Wireless Mouse x2 @ 94
+   total: 188
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-28059-152
+   customer: Dave <dave556@gmail.com>
+   mobile: 7453735490
+   item: Backpack x2 @ 87
+   total: 174
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11513-153
+   customer: Jack <jack613@gmail.com>
+   mobile: 7705497610
+   item: Keyboard x5 @ 11
+   total: 55
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-15512-153
+   customer: Grace <grace12@gmail.com>
+   mobile: 7109821288
+   item: Water Bottle x3 @ 93
+   total: 279
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-646-154
+   customer: Eve <eve355@gmail.com>
+   mobile: 7139449250
+   item: Wireless Mouse x3 @ 20
+   total: 60
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31807-154
+   customer: Alice <alice56@gmail.com>
+   mobile: 7460451738
+   item: Backpack x4 @ 75
+   total: 300
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-28002-155
+   customer: Dave <dave604@gmail.com>
+   mobile: 7000217980
+   item: Coffee Maker x4 @ 37
+   total: 148
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2272-155
+   customer: Harry <harry59@gmail.com>
+   mobile: 7147130304
+   item: Wireless Mouse x5 @ 67
+   total: 335
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8345-156
+   customer: Carol <carol660@gmail.com>
+   mobile: 7191544052
+   item: Smartphone x5 @ 20
+   total: 100
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9264-157
+   customer: Jack <jack155@gmail.com>
+   mobile: 7189990396
+   item: Coffee Maker x1 @ 57
+   total: 57
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-25610-157
+   customer: Dave <dave183@gmail.com>
+   mobile: 7040932720
+   item: Water Bottle x2 @ 23
+   total: 46
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23455-158
+   customer: Dave <dave889@gmail.com>
+   mobile: 7675354400
+   item: Backpack x2 @ 91
+   total: 182
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-27709-158
+   customer: Carol <carol28@gmail.com>
+   mobile: 7108157224
+   item: Running Shoes x5 @ 94
+   total: 470
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5296-159
+   customer: Alice <alice581@gmail.com>
+   mobile: 7758900148
+   item: Laptop x5 @ 70
+   total: 350
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3534-160
+   customer: Eve <eve638@gmail.com>
+   mobile: 7219672387
+   item: Smartphone x1 @ 24
+   total: 24
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-4788-160
+   customer: Grace <grace968@gmail.com>
+   mobile: 7013239173
+   item: Coffee Maker x1 @ 21
+   total: 21
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-22007-161
+   customer: Alice <alice355@gmail.com>
+   mobile: 7284518146
+   item: Desk Lamp x3 @ 12
+   total: 36
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-28057-161
+   customer: Eve <eve243@gmail.com>
+   mobile: 7078039882
+   item: Water Bottle x5 @ 41
+   total: 205
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12137-162
+   customer: Iris <iris678@gmail.com>
+   mobile: 7001138294
+   item: Running Shoes x4 @ 93
+   total: 372
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16924-163
+   customer: Alice <alice75@gmail.com>
+   mobile: 7022300512
+   item: Water Bottle x2 @ 53
+   total: 106
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-22617-163
+   customer: Frank <frank403@gmail.com>
+   mobile: 7629993700
+   item: Desk Lamp x1 @ 71
+   total: 71
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-21639-164
+   customer: Carol <carol290@gmail.com>
+   mobile: 7245059322
+   item: Backpack x1 @ 73
+   total: 73
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12410-164
+   customer: Bob <bob655@gmail.com>
+   mobile: 7174628213
+   item: Keyboard x2 @ 66
+   total: 132
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24650-165
+   customer: Harry <harry182@gmail.com>
+   mobile: 7124186908
+   item: Wireless Mouse x2 @ 44
+   total: 88
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-26706-166
+   customer: Grace <grace546@gmail.com>
+   mobile: 7048863886
+   item: Desk Lamp x3 @ 97
+   total: 291
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11024-166
+   customer: Eve <eve654@gmail.com>
+   mobile: 7905038134
+   item: Backpack x2 @ 61
+   total: 122
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-20254-167
+   customer: Alice <alice909@gmail.com>
+   mobile: 7557589237
+   item: Laptop x2 @ 44
+   total: 88
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5630-168
+   customer: Dave <dave390@gmail.com>
+   mobile: 7039965365
+   item: Keyboard x3 @ 97
+   total: 291
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-22865-168
+   customer: Jack <jack680@gmail.com>
+   mobile: 7285384275
+   item: Coffee Maker x5 @ 83
+   total: 415
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24778-169
+   customer: Jack <jack653@gmail.com>
+   mobile: 7565773984
+   item: Smartphone x2 @ 26
+   total: 52
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24648-169
+   customer: Grace <grace535@gmail.com>
+   mobile: 7207850974
+   item: Laptop x3 @ 35
+   total: 105
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-18750-170
+   customer: Frank <frank529@gmail.com>
+   mobile: 7084338815
+   item: Wireless Mouse x3 @ 72
+   total: 216
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-543-170
+   customer: Iris <iris825@gmail.com>
+   mobile: 7762217716
+   item: Backpack x1 @ 35
+   total: 35
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16820-171
+   customer: Bob <bob487@gmail.com>
+   mobile: 7406166519
+   item: Running Shoes x3 @ 33
+   total: 99
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-28965-171
+   customer: Jack <jack959@gmail.com>
+   mobile: 7377017660
+   item: Headphones x3 @ 45
+   total: 135
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-15358-172
+   customer: Bob <bob845@gmail.com>
+   mobile: 7002591218
+   item: Laptop x3 @ 84
+   total: 252
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23208-173
+   customer: Harry <harry59@gmail.com>
+   mobile: 7410398785
+   item: Keyboard x5 @ 83
+   total: 415
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-29692-173
+   customer: Eve <eve621@gmail.com>
+   mobile: 7967638178
+   item: Desk Lamp x2 @ 50
+   total: 100
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-17484-174
+   customer: Dave <dave417@gmail.com>
+   mobile: 7155330800
+   item: Backpack x4 @ 69
+   total: 276
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30469-175
+   customer: Carol <carol81@gmail.com>
+   mobile: 7031415944
+   item: Desk Lamp x1 @ 44
+   total: 44
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5778-176
+   customer: Dave <dave451@gmail.com>
+   mobile: 7036654686
+   item: Desk Lamp x2 @ 31
+   total: 62
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-18580-176
+   customer: Bob <bob438@gmail.com>
+   mobile: 7055334240
+   item: Water Bottle x5 @ 11
+   total: 55
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8061-177
+   customer: Dave <dave217@gmail.com>
+   mobile: 7103495983
+   item: Desk Lamp x4 @ 43
+   total: 172
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31164-178
+   customer: Eve <eve572@gmail.com>
+   mobile: 7411551174
+   item: Laptop x4 @ 71
+   total: 284
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-32404-178
+   customer: Jack <jack458@gmail.com>
+   mobile: 7304456229
+   item: Water Bottle x4 @ 84
+   total: 336
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-6813-179
+   customer: Jack <jack933@gmail.com>
+   mobile: 7394032255
+   item: Running Shoes x2 @ 32
+   total: 64
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12995-179
+   customer: Iris <iris911@gmail.com>
+   mobile: 7839566216
+   item: Coffee Maker x2 @ 35
+   total: 70
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31205-180
+   customer: Eve <eve311@gmail.com>
+   mobile: 7644189880
+   item: Laptop x4 @ 68
+   total: 272
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-883-180
+   customer: Bob <bob947@gmail.com>
+   mobile: 7180288216
+   item: Laptop x4 @ 61
+   total: 244
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-6694-181
+   customer: Eve <eve481@gmail.com>
+   mobile: 7279022296
+   item: Smartphone x5 @ 75
+   total: 375
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-26636-181
+   customer: Eve <eve721@gmail.com>
+   mobile: 7050333660
+   item: Headphones x5 @ 81
+   total: 405
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3788-182
+   customer: Carol <carol393@gmail.com>
+   mobile: 7320927901
+   item: Headphones x4 @ 51
+   total: 204
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-4367-183
+   customer: Eve <eve233@gmail.com>
+   mobile: 7270138960
+   item: Wireless Mouse x2 @ 14
+   total: 28
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13855-183
+   customer: Eve <eve839@gmail.com>
+   mobile: 7147974850
+   item: Laptop x3 @ 90
+   total: 270
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-10120-184
+   customer: Harry <harry470@gmail.com>
+   mobile: 7362554920
+   item: Wireless Mouse x2 @ 29
+   total: 58
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2432-184
+   customer: Alice <alice174@gmail.com>
+   mobile: 7247929165
+   item: Wireless Mouse x1 @ 90
+   total: 90
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-25935-185
+   customer: Dave <dave475@gmail.com>
+   mobile: 7009685654
+   item: Wireless Mouse x4 @ 69
+   total: 276
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-17750-185
+   customer: Harry <harry720@gmail.com>
+   mobile: 7040424164
+   item: Desk Lamp x2 @ 30
+   total: 60
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2384-186
+   customer: Bob <bob59@gmail.com>
+   mobile: 7021280114
+   item: Wireless Mouse x3 @ 22
+   total: 66
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12063-186
+   customer: Harry <harry532@gmail.com>
+   mobile: 7275123976
+   item: Coffee Maker x3 @ 87
+   total: 261
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-28261-187
+   customer: Grace <grace93@gmail.com>
+   mobile: 7397083004
+   item: Water Bottle x4 @ 96
+   total: 384
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-1422-188
+   customer: Grace <grace745@gmail.com>
+   mobile: 7179618246
+   item: Backpack x3 @ 36
+   total: 108
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24449-189
+   customer: Harry <harry413@gmail.com>
+   mobile: 7261220938
+   item: Backpack x2 @ 88
+   total: 176
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24020-189
+   customer: Grace <grace852@gmail.com>
+   mobile: 7075281064
+   item: Keyboard x3 @ 10
+   total: 30
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-21829-190
+   customer: Frank <frank526@gmail.com>
+   mobile: 7625768776
+   item: Wireless Mouse x3 @ 30
+   total: 90
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-4712-190
+   customer: Frank <frank371@gmail.com>
+   mobile: 7199166345
+   item: Keyboard x4 @ 28
+   total: 112
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-498-191
+   customer: Dave <dave29@gmail.com>
+   mobile: 7140196790
+   item: Desk Lamp x1 @ 84
+   total: 84
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-7768-191
+   customer: Dave <dave525@gmail.com>
+   mobile: 7025399377
+   item: Headphones x3 @ 13
+   total: 39
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-19294-192
+   customer: Grace <grace493@gmail.com>
+   mobile: 7159838250
+   item: Backpack x1 @ 59
+   total: 59
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-22376-193
+   customer: Iris <iris73@gmail.com>
+   mobile: 7121544012
+   item: Keyboard x5 @ 27
+   total: 135
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-18553-193
+   customer: Frank <frank694@gmail.com>
+   mobile: 7424904961
+   item: Backpack x4 @ 30
+   total: 120
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11001-194
+   customer: Jack <jack551@gmail.com>
+   mobile: 7056162100
+   item: Desk Lamp x4 @ 35
+   total: 140
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-29412-194
+   customer: Carol <carol855@gmail.com>
+   mobile: 7035202710
+   item: Headphones x2 @ 98
+   total: 196
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2354-195
+   customer: Alice <alice786@gmail.com>
+   mobile: 7096470862
+   item: Desk Lamp x2 @ 20
+   total: 40
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23386-196
+   customer: Jack <jack605@gmail.com>
+   mobile: 7225576524
+   item: Laptop x2 @ 17
+   total: 34
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-29729-196
+   customer: Frank <frank383@gmail.com>
+   mobile: 7019059670
+   item: Desk Lamp x5 @ 40
+   total: 200
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-4865-197
+   customer: Frank <frank889@gmail.com>
+   mobile: 7655229520
+   item: Running Shoes x1 @ 86
+   total: 86
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-1220-198
+   customer: Alice <alice594@gmail.com>
+   mobile: 7494932377
+   item: Headphones x2 @ 71
+   total: 142
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23311-198
+   customer: Bob <bob556@gmail.com>
+   mobile: 7003387131
+   item: Backpack x2 @ 66
+   total: 132
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5178-199
+   customer: Harry <harry347@gmail.com>
+   mobile: 7097075940
+   item: Laptop x1 @ 92
+   total: 92
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-10896-200
+   customer: Alice <alice781@gmail.com>
+   mobile: 7907850268
+   item: Running Shoes x3 @ 46
+   total: 138
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-27178-200
+   customer: Bob <bob578@gmail.com>
+   mobile: 7009363746
+   item: Desk Lamp x4 @ 35
+   total: 140
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-27008-201
+   customer: Alice <alice196@gmail.com>
+   mobile: 7768512244
+   item: Backpack x2 @ 72
+   total: 144
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8287-202
+   customer: Jack <jack512@gmail.com>
+   mobile: 7014045522
+   item: Keyboard x5 @ 28
+   total: 140
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-854-202
+   customer: Iris <iris940@gmail.com>
+   mobile: 7121242576
+   item: Coffee Maker x4 @ 94
+   total: 376
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8884-203
+   customer: Eve <eve620@gmail.com>
+   mobile: 7654402655
+   item: Laptop x3 @ 32
+   total: 96
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-181-203
+   customer: Frank <frank548@gmail.com>
+   mobile: 7129781728
+   item: Running Shoes x1 @ 67
+   total: 67
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-26958-204
+   customer: Carol <carol585@gmail.com>
+   mobile: 7425867284
+   item: Keyboard x2 @ 94
+   total: 188
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-26537-204
+   customer: Dave <dave833@gmail.com>
+   mobile: 7401476775
+   item: Backpack x1 @ 19
+   total: 19
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11742-205
+   customer: Iris <iris893@gmail.com>
+   mobile: 7017866540
+   item: Running Shoes x1 @ 63
+   total: 63
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3097-206
+   customer: Grace <grace311@gmail.com>
+   mobile: 7524334805
+   item: Backpack x4 @ 67
+   total: 268
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-1087-206
+   customer: Frank <frank386@gmail.com>
+   mobile: 7394727256
+   item: Headphones x5 @ 10
+   total: 50
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5110-207
+   customer: Dave <dave591@gmail.com>
+   mobile: 7254448480
+   item: Wireless Mouse x5 @ 60
+   total: 300
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-6357-209
+   customer: Alice <alice637@gmail.com>
+   mobile: 7337843737
+   item: Backpack x4 @ 23
+   total: 92
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-22384-210
+   customer: Jack <jack429@gmail.com>
+   mobile: 7169528038
+   item: Smartphone x5 @ 66
+   total: 330
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-15427-210
+   customer: Alice <alice878@gmail.com>
+   mobile: 7513419800
+   item: Laptop x1 @ 67
+   total: 67
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31052-211
+   customer: Alice <alice991@gmail.com>
+   mobile: 7318059812
+   item: Keyboard x3 @ 53
+   total: 159
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13979-212
+   customer: Dave <dave214@gmail.com>
+   mobile: 7106941187
+   item: Coffee Maker x1 @ 31
+   total: 31
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5817-212
+   customer: Iris <iris781@gmail.com>
+   mobile: 7856205925
+   item: Keyboard x4 @ 13
+   total: 52
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2621-213
+   customer: Carol <carol212@gmail.com>
+   mobile: 7003086928
+   item: Coffee Maker x1 @ 74
+   total: 74
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-99-214
+   customer: Grace <grace408@gmail.com>
+   mobile: 7487787872
+   item: Wireless Mouse x2 @ 94
+   total: 188
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-29029-214
+   customer: Grace <grace257@gmail.com>
+   mobile: 7441196695
+   item: Water Bottle x4 @ 52
+   total: 208
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-17116-215
+   customer: Grace <grace603@gmail.com>
+   mobile: 7096812688
+   item: Water Bottle x3 @ 72
+   total: 216
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-9934-216
+   customer: Iris <iris423@gmail.com>
+   mobile: 7478578696
+   item: Keyboard x5 @ 23
+   total: 115
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3760-217
+   customer: Eve <eve248@gmail.com>
+   mobile: 7282008475
+   item: Desk Lamp x4 @ 21
+   total: 84
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12127-217
+   customer: Iris <iris565@gmail.com>
+   mobile: 7485601642
+   item: Headphones x4 @ 71
+   total: 284
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11957-218
+   customer: Grace <grace50@gmail.com>
+   mobile: 7010610088
+   item: Backpack x5 @ 25
+   total: 125
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16308-219
+   customer: Eve <eve995@gmail.com>
+   mobile: 7247291854
+   item: Laptop x4 @ 68
+   total: 272
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-14093-219
+   customer: Dave <dave463@gmail.com>
+   mobile: 7130240980
+   item: Laptop x2 @ 65
+   total: 130
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13924-220
+   customer: Carol <carol451@gmail.com>
+   mobile: 7783735645
+   item: Laptop x1 @ 47
+   total: 47
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-10626-221
+   customer: Carol <carol411@gmail.com>
+   mobile: 7475188242
+   item: Backpack x3 @ 95
+   total: 285
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-26586-222
+   customer: Grace <grace536@gmail.com>
+   mobile: 7585721975
+   item: Laptop x3 @ 66
+   total: 198
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2958-223
+   customer: Iris <iris17@gmail.com>
+   mobile: 7310350798
+   item: Water Bottle x3 @ 77
+   total: 231
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-23294-224
+   customer: Grace <grace67@gmail.com>
+   mobile: 7076207824
+   item: Coffee Maker x1 @ 98
+   total: 98
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3712-224
+   customer: Dave <dave34@gmail.com>
+   mobile: 7078710202
+   item: Laptop x2 @ 81
+   total: 162
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11481-225
+   customer: Dave <dave322@gmail.com>
+   mobile: 7189737190
+   item: Wireless Mouse x3 @ 44
+   total: 132
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-6932-225
+   customer: Harry <harry397@gmail.com>
+   mobile: 7705786816
+   item: Smartphone x3 @ 16
+   total: 48
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-545-226
+   customer: Jack <jack757@gmail.com>
+   mobile: 7470884600
+   item: Smartphone x4 @ 75
+   total: 300
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24134-226
+   customer: Alice <alice64@gmail.com>
+   mobile: 7176659461
+   item: Smartphone x3 @ 41
+   total: 123
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-26951-227
+   customer: Bob <bob224@gmail.com>
+   mobile: 7067885860
+   item: Coffee Maker x1 @ 70
+   total: 70
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13019-227
+   customer: Frank <frank398@gmail.com>
+   mobile: 7377380132
+   item: Desk Lamp x3 @ 18
+   total: 54
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-10706-228
+   customer: Alice <alice702@gmail.com>
+   mobile: 7084650384
+   item: Desk Lamp x1 @ 91
+   total: 91
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-16477-228
+   customer: Harry <harry600@gmail.com>
+   mobile: 7135962669
+   item: Headphones x2 @ 64
+   total: 128
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-2169-229
+   customer: Grace <grace541@gmail.com>
+   mobile: 7330081786
+   item: Coffee Maker x3 @ 30
+   total: 90
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11001-229
+   customer: Bob <bob979@gmail.com>
+   mobile: 7021389535
+   item: Backpack x5 @ 21
+   total: 105
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-10500-230
+   customer: Bob <bob727@gmail.com>
+   mobile: 7123244065
+   item: Running Shoes x4 @ 90
+   total: 360
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-24257-230
+   customer: Grace <grace808@gmail.com>
+   mobile: 7977742675
+   item: Keyboard x5 @ 39
+   total: 195
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-10890-231
+   customer: Iris <iris704@gmail.com>
+   mobile: 7690220950
+   item: Laptop x3 @ 82
+   total: 246
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12564-231
+   customer: Eve <eve352@gmail.com>
+   mobile: 7218196160
+   item: Keyboard x5 @ 64
+   total: 320
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-19937-232
+   customer: Iris <iris953@gmail.com>
+   mobile: 7524278161
+   item: Headphones x4 @ 50
+   total: 200
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-32738-233
+   customer: Carol <carol189@gmail.com>
+   mobile: 7216511905
+   item: Smartphone x4 @ 98
+   total: 392
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-7666-233
+   customer: Iris <iris543@gmail.com>
+   mobile: 7328983270
+   item: Backpack x5 @ 10
+   total: 50
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-950-234
+   customer: Grace <grace20@gmail.com>
+   mobile: 7036661809
+   item: Headphones x3 @ 28
+   total: 84
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-1989-234
+   customer: Carol <carol42@gmail.com>
+   mobile: 7899574000
+   item: Desk Lamp x5 @ 39
+   total: 195
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-14701-235
+   customer: Dave <dave149@gmail.com>
+   mobile: 7281068305
+   item: Water Bottle x2 @ 72
+   total: 144
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-5826-235
+   customer: Grace <grace455@gmail.com>
+   mobile: 7484675389
+   item: Backpack x1 @ 13
+   total: 13
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-31206-236
+   customer: Harry <harry174@gmail.com>
+   mobile: 7475835586
+   item: Headphones x5 @ 31
+   total: 155
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-14984-236
+   customer: Dave <dave638@gmail.com>
+   mobile: 7022000800
+   item: Keyboard x2 @ 94
+   total: 188
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-3647-237
+   customer: Iris <iris914@gmail.com>
+   mobile: 7205878915
+   item: Desk Lamp x4 @ 31
+   total: 124
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-6407-237
+   customer: Bob <bob63@gmail.com>
+   mobile: 7118995630
+   item: Desk Lamp x2 @ 23
+   total: 46
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-29910-238
+   customer: Harry <harry775@gmail.com>
+   mobile: 7126578726
+   item: Headphones x2 @ 34
+   total: 68
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-19936-239
+   customer: Jack <jack597@gmail.com>
+   mobile: 7395197222
+   item: Running Shoes x1 @ 63
+   total: 63
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12670-239
+   customer: Harry <harry757@gmail.com>
+   mobile: 7267059898
+   item: Desk Lamp x1 @ 23
+   total: 23
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-33-240
+   customer: Jack <jack664@gmail.com>
+   mobile: 7241692192
+   item: Coffee Maker x4 @ 21
+   total: 84
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-1661-240
+   customer: Iris <iris689@gmail.com>
+   mobile: 7048724452
+   item: Coffee Maker x2 @ 30
+   total: 60
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-25408-241
+   customer: Harry <harry993@gmail.com>
+   mobile: 7011789544
+   item: Running Shoes x3 @ 89
+   total: 267
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-17400-241
+   customer: Eve <eve729@gmail.com>
+   mobile: 7152682570
+   item: Coffee Maker x2 @ 83
+   total: 166
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-8833-242
+   customer: Grace <grace55@gmail.com>
+   mobile: 7096504348
+   item: Wireless Mouse x3 @ 67
+   total: 201
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-25686-243
+   customer: Jack <jack930@gmail.com>
+   mobile: 7534654876
+   item: Water Bottle x1 @ 54
+   total: 54
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-30844-243
+   customer: Carol <carol194@gmail.com>
+   mobile: 7287191320
+   item: Desk Lamp x3 @ 66
+   total: 198
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-20170-244
+   customer: Dave <dave387@gmail.com>
+   mobile: 7469027775
+   item: Backpack x1 @ 83
+   total: 83
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-18315-244
+   customer: Dave <dave942@gmail.com>
+   mobile: 7458091588
+   item: Headphones x1 @ 24
+   total: 24
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-12196-245
+   customer: Dave <dave487@gmail.com>
+   mobile: 7556947180
+   item: Running Shoes x4 @ 23
+   total: 92
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-13644-245
+   customer: Iris <iris460@gmail.com>
+   mobile: 7084313179
+   item: Wireless Mouse x2 @ 72
+   total: 144
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-32292-246
+   customer: Carol <carol762@gmail.com>
+   mobile: 7331883256
+   item: Laptop x5 @ 45
+   total: 225
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-17312-247
+   customer: Bob <bob869@gmail.com>
+   mobile: 7594076596
+   item: Backpack x4 @ 80
+   total: 320
+📩 Send OTP response: {"error":"mobile required"}
+❌ Failed to parse OTP. Skipping...
+🚀 Starting transaction: txn-11172-247
+   customer: Dave <dave968@gmail.com>
+   mobile: 7734364631
+   item: Backpack x5 @ 40
+   total: 200
