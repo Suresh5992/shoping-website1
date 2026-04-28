@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>Checkout</title>
   <link rel="stylesheet" href="css/bootstrap.css">
   <style>
-    #otpModal{ display:none; position:fixed; left:0; right:0; top:0; bottom:0; background:rgba(0,0,0,0.5); align-items:center; justify-content:center; z-index:9999 }
-    #otpModal .modal-box{ background:#fff; padding:20px; border-radius:6px; width:320px; max-width:90%; }
-    #demoSpinner{ display:none; position:fixed; left:0; right:0; top:0; bottom:0; background:rgba(0,0,0,0.45); align-items:center; justify-content:center; z-index:10000 }
-    .spinner-circle{ width:48px; height:48px; border-radius:50%; border:5px solid rgba(255,255,255,0.25); border-top-color:#fff; animation:spin 1s linear infinite }
-    .spinner-text{ color:#fff; margin-left:12px }
-    @keyframes spin{ to{ transform:rotate(360deg) } }
+    #otpModal { display: none; position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 9999; }
+    #otpModal .modal-box { background: #fff; padding: 20px; border-radius: 6px; width: 320px; max-width: 90%; }
+    #demoSpinner { display: none; position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0,0,0,0.45); align-items: center; justify-content: center; z-index: 10000; }
+    .spinner-circle { width: 48px; height: 48px; border-radius: 50%; border: 5px solid rgba(255,255,255,0.25); border-top-color: #fff; animation: spin 1s linear infinite; }
+    .spinner-text { color: #fff; margin-left: 12px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
-
 <body>
 
 <div class="container" style="margin-top:50px">
-
   <h2>Checkout / Payment</h2>
 
   <form>
-
     <div class="form-group">
       <label>Full Name</label>
       <input id="shippingName" type="text" class="form-control" required>
@@ -43,17 +41,10 @@
 
     <h3 id="totalAmount"></h3>
 
-    <button type="button"
-            onclick="startOtpFlow()"
-            class="btn btn-success">
-      Pay Now
-    </button>
-
+    <button type="button" onclick="startOtpFlow()" class="btn btn-success">Pay Now</button>
   </form>
-
 </div>
 
-<!-- OTP Modal -->
 <div id="otpModal">
   <div class="modal-box">
     <h4>Enter OTP</h4>
@@ -63,15 +54,14 @@
       <input id="otpInput" class="form-control" placeholder="Enter 6-digit OTP">
     </div>
     <div style="display:flex;align-items:center;gap:8px">
-      <button class="btn btn-primary" onclick="verifyOtpAndPay()">Verify & Pay</button>
+      <button class="btn btn-primary" onclick="verifyOtpAndPay()">Verify &amp; Pay</button>
       <button id="resendOtpBtn" class="btn btn-default" onclick="resendOtp()">Resend</button>
-      <small id="resendTimer" style="margin-left:6px;color:#666"> </small>
+      <small id="resendTimer" style="margin-left:6px;color:#666"></small>
       <button class="btn btn-link pull-right" style="margin-left:auto" onclick="document.getElementById('otpModal').style.display='none'">Cancel</button>
     </div>
   </div>
 </div>
 
-<!-- Spinner overlay -->
 <div id="demoSpinner" style="display:none;flex-direction:row">
   <div style="display:flex;align-items:center">
     <div class="spinner-circle"></div>
@@ -80,53 +70,41 @@
 </div>
 
 <script>
-var total = localStorage.getItem("cartTotal") || 0;
+var total = localStorage.getItem('cartTotal') || 0;
+document.getElementById('totalAmount').innerHTML = 'Total Amount: &#8377; ' + total;
 
-document.getElementById("totalAmount")
-  .innerHTML = "Total Amount: ₹ " + total;
+(function() {
+  try {
+    var savedMobile = localStorage.getItem('checkoutMobile');
+    var savedName = localStorage.getItem('checkoutName');
+    var savedAddress = localStorage.getItem('checkoutAddress');
+    var currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
 
-// Prefill mobile if provided from payment page
-(function(){
-  try{
-    var saved = localStorage.getItem('checkoutMobile');
-    if(saved){
-      var el = document.getElementById('shippingMobile');
-      if(el) el.value = saved;
-      localStorage.removeItem('checkoutMobile');
-    }
-  }catch(e){}
+    if (savedMobile) document.getElementById('shippingMobile').value = savedMobile;
+    if (savedName) document.getElementById('shippingName').value = savedName;
+    if (savedAddress) document.getElementById('shippingAddress').value = savedAddress;
+    if (currentUser && currentUser.email) document.getElementById('shippingEmail').value = currentUser.email;
+  } catch (e) {}
 })();
 
-// Prefill name and address if available
-(function(){
-  try{
-    var n = localStorage.getItem('checkoutName');
-    var a = localStorage.getItem('checkoutAddress');
-    if(n){ var eln = document.getElementById('shippingName'); if(eln) eln.value = n; localStorage.removeItem('checkoutName'); }
-    if(a){ var ela = document.getElementById('shippingAddress'); if(ela) ela.value = a; localStorage.removeItem('checkoutAddress'); }
-  }catch(e){}
-})();
+var demoOtp = null;
+var demoOtpExpiresAt = 0;
 
-// --- OTP / Demo payment flow ---
-var __demoOtp = null;
-var __otpExpiresAt = 0;
+function startOtpFlow() {
+  var name = (document.getElementById('shippingName') || {}).value || '';
+  var email = (document.getElementById('shippingEmail') || {}).value || '';
+  var mobile = (document.getElementById('shippingMobile') || {}).value || '';
+  var address = (document.getElementById('shippingAddress') || {}).value || '';
 
-function startOtpFlow(){
-  var name = (document.getElementById('shippingName')||{}).value || '';
-  var email = (document.getElementById('shippingEmail')||{}).value || '';
-  var mobile = (document.getElementById('shippingMobile')||{}).value || '';
-  var address = (document.getElementById('shippingAddress')||{}).value || '';
-
-  if(!name || !email || !mobile || !address){
+  if (!name || !email || !mobile || !address) {
     alert('Please fill all fields before proceeding.');
     return;
   }
 
-  // create a temporary order payload stored on window for later use
   window.__pendingOrder = {
     id: 'ORD' + Date.now(),
     date: new Date().toISOString(),
-    products: JSON.parse(localStorage.getItem('cartProducts')||'[]'),
+    products: JSON.parse(localStorage.getItem('cartProducts') || '[]'),
     total: total,
     shipping: { name: name, email: email, mobile: mobile, address: address }
   };
@@ -134,94 +112,154 @@ function startOtpFlow(){
   sendOtpToMobile(mobile);
 }
 
-function sendOtpToMobile(mobile){
-  // demo: generate 6-digit OTP and "send" it
-  __demoOtp = Math.floor(100000 + Math.random()*900000).toString();
-  __otpExpiresAt = Date.now() + (5*60*1000); // 5 minutes
-
-  // show spinner while "sending"
+function sendOtpToMobile(mobile) {
+  var apiBase = window.API_BASE || '';
   showSpinner('Sending OTP to ' + mobile + '...');
-  console.log('Demo OTP (visible only in console):', __demoOtp);
 
-  setTimeout(function(){
-    hideSpinner();
-    // show OTP modal
-    document.getElementById('demoOtpValue').innerText = __demoOtp; // demo helper
-    document.getElementById('otpSentTo').innerText = mobile;
-    document.getElementById('otpModal').style.display = 'block';
-    startOtpCountdown(30);
-  }, 1200);
+  fetch(apiBase + '/api/send-otp', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ mobile: mobile })
+  })
+    .then(function(r) { return r.json(); })
+    .then(function(json) {
+      hideSpinner();
+      if (json && json.ok) {
+        demoOtp = json.demoOtp || null;
+        demoOtpExpiresAt = Date.now() + (5 * 60 * 1000);
+        document.getElementById('demoOtpValue').innerText = json.demoOtp || '';
+        document.getElementById('otpSentTo').innerText = mobile;
+        document.getElementById('otpModal').style.display = 'block';
+        startOtpCountdown(30);
+        return;
+      }
+      fallbackDemoOtp(mobile);
+    })
+    .catch(function() {
+      hideSpinner();
+      fallbackDemoOtp(mobile);
+    });
 }
 
-function startOtpCountdown(seconds){
+function fallbackDemoOtp(mobile) {
+  demoOtp = Math.floor(100000 + Math.random() * 900000).toString();
+  demoOtpExpiresAt = Date.now() + (5 * 60 * 1000);
+  document.getElementById('demoOtpValue').innerText = demoOtp;
+  document.getElementById('otpSentTo').innerText = mobile;
+  document.getElementById('otpModal').style.display = 'block';
+  startOtpCountdown(30);
+}
+
+function startOtpCountdown(seconds) {
   var el = document.getElementById('resendTimer');
   var btn = document.getElementById('resendOtpBtn');
   btn.disabled = true;
   el.innerText = seconds + 's';
-  var t = setInterval(function(){
+  var timer = setInterval(function() {
     seconds--;
     el.innerText = seconds + 's';
-    if(seconds<=0){
-      clearInterval(t); el.innerText = 'Expired'; btn.disabled = false;
+    if (seconds <= 0) {
+      clearInterval(timer);
+      el.innerText = 'Expired';
+      btn.disabled = false;
     }
-  },1000);
+  }, 1000);
 }
 
-function resendOtp(){
+function resendOtp() {
   var mobile = document.getElementById('otpSentTo').innerText || '';
-  if(!mobile) return;
+  if (!mobile) return;
   sendOtpToMobile(mobile);
 }
 
-function verifyOtpAndPay(){
+function verifyOtpAndPay() {
   var val = document.getElementById('otpInput').value.trim();
-  if(!val){ alert('Enter OTP'); return; }
-  if(Date.now() > __otpExpiresAt){ alert('OTP expired. Please resend.'); return; }
-  if(val !== __demoOtp){ alert('Incorrect OTP.'); return; }
+  if (!val) {
+    alert('Enter OTP');
+    return;
+  }
 
-  // proceed with payment processing animation
+  var apiBase = window.API_BASE || '';
+  showSpinner('Verifying OTP...');
+
+  fetch(apiBase + '/api/verify-otp', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      mobile: document.getElementById('otpSentTo').innerText,
+      otp: val,
+      order: window.__pendingOrder
+    })
+  })
+    .then(function(r) { return r.json(); })
+    .then(function(json) {
+      hideSpinner();
+      if (json && json.ok) {
+        finalizeOrder();
+        return;
+      }
+      if (json && json.error) {
+        alert('OTP verify failed: ' + json.error);
+        return;
+      }
+      if (val === demoOtp && Date.now() <= demoOtpExpiresAt) {
+        finalizeOrder();
+        return;
+      }
+      alert('Incorrect OTP.');
+    })
+    .catch(function() {
+      hideSpinner();
+      if (val === demoOtp && Date.now() <= demoOtpExpiresAt) {
+        finalizeOrder();
+      } else {
+        alert('OTP verification failed.');
+      }
+    });
+}
+
+function finalizeOrder() {
   document.getElementById('otpModal').style.display = 'none';
   showSpinner('Processing payment...');
 
-  setTimeout(function(){
+  setTimeout(function() {
     hideSpinner();
-    // finalize order (store in localStorage)
     var order = window.__pendingOrder || null;
-    if(order){
-      try{ var orders = JSON.parse(localStorage.getItem('orders')||'[]'); }catch(e){ orders = []; }
-      orders.unshift(order);
-      localStorage.setItem('orders', JSON.stringify(orders));
-
-      // clear cart
-      localStorage.removeItem('cartProducts');
-      localStorage.removeItem('cartTotal');
-      localStorage.removeItem('products');
-
-      // open mail client with confirmation (demo)
-      try{
-        var mailto = 'mailto:' + encodeURIComponent(order.shipping.email)
-          + '?subject=' + encodeURIComponent('Order ' + order.id + ' Confirmation')
-          + '&body=' + encodeURIComponent('Thank you for your order.\nOrder ID: ' + order.id + '\nTotal: ' + order.total);
-        window.open(mailto);
-      }catch(e){/*ignore*/}
-
-      window.location.href = 'success.html';
-    }else{
+    if (!order) {
       alert('Order data missing.');
+      return;
     }
+
+    var orders = [];
+    try { orders = JSON.parse(localStorage.getItem('orders') || '[]'); } catch (e) {}
+    orders.unshift(order);
+    localStorage.setItem('orders', JSON.stringify(orders));
+    localStorage.setItem('latestOrder', JSON.stringify(order));
+
+    localStorage.removeItem('cartProducts');
+    localStorage.removeItem('cartTotal');
+    localStorage.removeItem('products');
+
+    try {
+      var mailto = 'mailto:' + encodeURIComponent(order.shipping.email)
+        + '?subject=' + encodeURIComponent('Order ' + order.id + ' Confirmation')
+        + '&body=' + encodeURIComponent('Thank you for your order.\nOrder ID: ' + order.id + '\nTotal: ' + order.total);
+      window.open(mailto);
+    } catch (e) {}
+
+    window.location.href = 'success.html';
   }, 1200);
 }
 
-// spinner helpers
-function showSpinner(text){
+function showSpinner(text) {
   var s = document.getElementById('demoSpinner');
   s.querySelector('.spinner-text').innerText = text || 'Working...';
   s.style.display = 'flex';
 }
-function hideSpinner(){
+
+function hideSpinner() {
   document.getElementById('demoSpinner').style.display = 'none';
 }
-
 </script>
 
 </body>

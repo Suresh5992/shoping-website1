@@ -11,62 +11,65 @@
 
 <div class="container" style="margin-top:50px;max-width:900px">
   <h2>Order History</h2>
-  <p class="text-muted">Your past orders (demo).</p>
-
+  <p class="text-muted">Your past orders.</p>
   <div id="orders"></div>
-
 </div>
 
 <script>
-function requireLogin(){
+function requireLogin() {
   var currentUser = null;
-  try { currentUser = JSON.parse(localStorage.getItem('currentUser')||'null'); } catch(e) { currentUser = null; }
-  if(!currentUser || !currentUser.email){
-    var out = document.getElementById('orders');
-    out.innerHTML = '<div class="alert alert-warning">Please <a href="login.html">login</a> or <a href="register.html">register</a> to view your order history.</div>';
+  try { currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null'); } catch (e) { currentUser = null; }
+  if (!currentUser || !currentUser.email) {
+    document.getElementById('orders').innerHTML = '<div class="alert alert-warning">Please <a href="login.html">login</a> or <a href="register.html">register</a> to view your order history.</div>';
     return false;
   }
   return true;
 }
 
-function renderOrders(){
-  if(!requireLogin()){
-    return;
-  }
+function renderOrders() {
+  if (!requireLogin()) return;
+
   var out = document.getElementById('orders');
   out.innerHTML = '<div class="alert alert-info">Loading orders...</div>';
 
-  var API_BASE = window.API_BASE || '';
-  fetch(API_BASE + '/api/orders')
-    .then(function(r){ return r.json(); })
-    .then(function(json){
-      if(json && json.ok && json.orders){
-        var orders = json.orders;
-        if(!orders.length){
-          out.innerHTML = '<div class="alert alert-info">No orders found.</div>';
-          return;
-        }
-
-        var html = '';
-        orders.forEach(function(o){
-          html += '<div class="panel panel-default" style="margin-top:12px">';
-          html += '<div class="panel-heading"><strong>Order '+o.transaction_id+'</strong> <span class="pull-right">'+(new Date(o.created_at)).toLocaleString()+'</span></div>';
-          html += '<div class="panel-body">';
-          html += '<p><strong>Total:</strong> ₹ '+o.amount+'</p>';
-          html += '<p><strong>Shipping:</strong> '+(o.name||'')+' &nbsp; '+(o.mobile||'')+'<br>'+(o.address||'')+'</p>';
-          html += '<table class="table table-condensed"><thead><tr><th>Product</th><th>Qty</th><th class="text-right">Price</th></tr></thead><tbody>';
-          (o.products||[]).forEach(function(p){
-            html += '<tr><td>'+ (p.name||'') +'</td><td>'+ (p.quantity||1) +'</td><td class="text-right">₹ '+((p.price||0)*(p.quantity||1)) +'</td></tr>';
-          });
-          html += '</tbody></table>';
-          html += '</div></div>';
-        });
-        out.innerHTML = html;
-      } else {
+  var apiBase = window.API_BASE || '';
+  fetch(apiBase + '/api/orders')
+    .then(function(r) { return r.json(); })
+    .then(function(json) {
+      if (!(json && json.ok && json.orders)) {
         out.innerHTML = '<div class="alert alert-warning">Failed to load orders.</div>';
+        return;
       }
+
+      var currentUser = null;
+      try { currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null'); } catch (e) {}
+      var currentEmail = currentUser && currentUser.email ? String(currentUser.email).toLowerCase() : '';
+      var orders = json.orders.filter(function(o) {
+        return !currentEmail || String(o.email || '').toLowerCase() === currentEmail;
+      });
+
+      if (!orders.length) {
+        out.innerHTML = '<div class="alert alert-info">No orders found.</div>';
+        return;
+      }
+
+      var html = '';
+      orders.forEach(function(o) {
+        html += '<div class="panel panel-default" style="margin-top:12px">';
+        html += '<div class="panel-heading"><strong>Order ' + o.transaction_id + '</strong> <span class="pull-right">' + (new Date(o.created_at)).toLocaleString() + '</span></div>';
+        html += '<div class="panel-body">';
+        html += '<p><strong>Total:</strong> &#8377; ' + o.amount + '</p>';
+        html += '<p><strong>Shipping:</strong> ' + (o.name || '') + ' &nbsp; ' + (o.mobile || '') + '<br>' + (o.address || '') + '</p>';
+        html += '<table class="table table-condensed"><thead><tr><th>Product</th><th>Qty</th><th class="text-right">Price</th></tr></thead><tbody>';
+        (o.products || []).forEach(function(p) {
+          html += '<tr><td>' + (p.name || '') + '</td><td>' + (p.quantity || 1) + '</td><td class="text-right">&#8377; ' + ((p.price || 0) * (p.quantity || 1)) + '</td></tr>';
+        });
+        html += '</tbody></table>';
+        html += '</div></div>';
+      });
+      out.innerHTML = html;
     })
-    .catch(function(err){
+    .catch(function(err) {
       console.error('Fetch orders error:', err);
       out.innerHTML = '<div class="alert alert-danger">Error loading orders. Please try again.</div>';
     });

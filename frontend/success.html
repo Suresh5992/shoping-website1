@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Success</title>
   <link rel="stylesheet" href="css/bootstrap.css">
   <style>
@@ -14,8 +15,12 @@
     .success-icon { width: 78px; height: 78px; line-height: 78px; margin: 0 auto 20px; border-radius: 50%; background: #198754; color: #fff; font-size: 2.2rem; box-shadow: 0 24px 40px rgba(25,135,84,.22); display: flex; align-items: center; justify-content: center; }
     .success-icon::before { content: "\2714"; }
     .success-title { font-size: 3rem; margin: 0 0 18px; color: #198754; }
-    .success-subtitle { font-size: 1.05rem; color: #495057; margin-bottom: 30px; line-height: 1.75; }
+    .success-subtitle { font-size: 1.05rem; color: #495057; margin-bottom: 20px; line-height: 1.75; }
     .btn-primary { padding: .9rem 2rem; font-size: 1.05rem; border-radius: 50px; }
+    .order-summary { max-width: 620px; margin: 0 auto 28px; padding: 18px 22px; border-radius: 22px; background: #fff; box-shadow: 0 20px 40px rgba(15,23,42,.08); border: 1px solid rgba(15,23,42,.06); text-align: left; }
+    .order-summary h3 { margin: 0 0 12px; font-size: 1.35rem; color: #0f172a; }
+    .order-summary p { margin: 6px 0; color: #475569; }
+    .order-summary strong { color: #0f172a; }
     .success-images { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin: 35px auto 32px; max-width: 980px; }
     .success-card { width: 220px; min-height: 250px; padding: 18px; border-radius: 26px; background: linear-gradient(180deg, #fff 0%, #f8fbff 100%); border: 1px solid rgba(0,0,0,.06); box-shadow: 0 24px 48px rgba(15,23,42,.08); text-align: center; position: relative; overflow: hidden; }
     .success-card::before { content: ''; position: absolute; width: 120px; height: 120px; background: rgba(13,110,253,.08); border-radius: 50%; top: -22px; right: -28px; }
@@ -50,7 +55,6 @@
     @media (max-width: 576px) { .success-title { font-size: 2.4rem; } .success-card { width: 100%; } }
   </style>
 </head>
-
 <body>
 
 <div class="container text-center success-box">
@@ -60,6 +64,7 @@
     <div class="success-icon"></div>
     <h1 class="success-title">Order Placed Successfully</h1>
     <p class="success-subtitle">Thank you for shopping with us! Your order is confirmed and will arrive soon. Keep an eye on your email for delivery updates.</p>
+    <div id="orderSummary" class="order-summary" style="display:none"></div>
     <a href="index.html" class="btn btn-primary">Continue Shopping</a>
   </div>
 
@@ -83,24 +88,24 @@
       <span class="promo-tag">Save 20%</span>
       <h3>Special Discount Offer</h3>
       <p>Use code <strong>THANKYOU20</strong> on your next purchase and get 20% off on selected household essentials.</p>
-      <div class="offer-line"><span>✓</span><span>Instant coupon activated</span></div>
+      <div class="offer-line"><span>&#10003;</span><span>Instant coupon activated</span></div>
     </div>
     <div class="promo-card">
       <span class="promo-tag">New</span>
       <h3>Upcoming Launches</h3>
       <p>Watch out for new weekly collections, premium grocery bundles, and express delivery options coming soon.</p>
-      <div class="offer-line"><span>✓</span><span>Fresh arrivals every week</span></div>
+      <div class="offer-line"><span>&#10003;</span><span>Fresh arrivals every week</span></div>
     </div>
     <div class="promo-card">
       <span class="promo-tag">Exclusive</span>
       <h3>Member Rewards</h3>
       <p>Sign in to unlock reward points, early access to sales, and VIP offers on top brands.</p>
-      <div class="offer-line"><span>✓</span><span>Earn points on every order</span></div>
+      <div class="offer-line"><span>&#10003;</span><span>Earn points on every order</span></div>
     </div>
   </div>
 
   <div class="feature-section">
-    <h2>What’s Next?</h2>
+    <h2>What's Next?</h2>
     <p>We are constantly improving your shopping experience. Expect smarter offers, better delivery windows, and new product launches every month.</p>
 
     <div class="feature-list">
@@ -124,6 +129,34 @@
     <span class="badge-env">Production</span>
   </div>
 </div>
+
+<script>
+(function() {
+  var summary = document.getElementById('orderSummary');
+  if (!summary) return;
+
+  try {
+    var order = JSON.parse(localStorage.getItem('latestOrder') || 'null');
+    if (!order || !order.id) return;
+
+    var productCount = Array.isArray(order.products) ? order.products.length : 0;
+    var shipping = order.shipping || {};
+    var orderDate = order.date ? new Date(order.date) : null;
+    var readableDate = orderDate && !isNaN(orderDate.getTime()) ? orderDate.toLocaleString() : 'Just now';
+
+    summary.innerHTML =
+      '<h3>Your Order Details</h3>' +
+      '<p><strong>Order ID:</strong> ' + order.id + '</p>' +
+      '<p><strong>Total:</strong> &#8377; ' + (order.total || 0) + '</p>' +
+      '<p><strong>Items:</strong> ' + productCount + '</p>' +
+      '<p><strong>Date:</strong> ' + readableDate + '</p>' +
+      '<p><strong>Customer:</strong> ' + (shipping.name || '-') + '</p>' +
+      '<p><strong>Mobile:</strong> ' + (shipping.mobile || '-') + '</p>' +
+      '<p><strong>Address:</strong> ' + (shipping.address || '-') + '</p>';
+    summary.style.display = 'block';
+  } catch (e) {}
+})();
+</script>
 
 </body>
 </html>
