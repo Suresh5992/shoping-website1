@@ -7,11 +7,11 @@
   <title>Success</title>
   <link rel="stylesheet" href="css/bootstrap.css">
   <style>
-    body { background: #eef4fb; color: #212529; }
-    .success-box { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px 20px; }
+    body { margin: 0; background: #eef4fb; color: #212529; }
+    .success-box { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding: 48px 20px 64px; }
     .badge-pill { display: inline-flex; align-items: center; gap: .5rem; background: #0d6efd; color: #fff; padding: .45rem 1rem; border-radius: 999px; box-shadow: 0 18px 35px rgba(13,110,253,.18); margin-bottom: 22px; font-weight: 600; animation: pulseBadge 2.8s ease-in-out infinite; }
     .badge-pill span { background: rgba(255,255,255,.18); padding: .2rem .65rem; border-radius: 999px; font-size: .85rem; }
-    .success-top { max-width: 760px; width: 100%; text-align: center; animation: fadeInUp .8s ease; }
+    .success-top { max-width: 760px; width: 100%; text-align: center; animation: fadeInUp .8s ease; margin-bottom: 12px; }
     .success-icon { width: 78px; height: 78px; line-height: 78px; margin: 0 auto 20px; border-radius: 50%; background: #198754; color: #fff; font-size: 2.2rem; box-shadow: 0 24px 40px rgba(25,135,84,.22); display: flex; align-items: center; justify-content: center; }
     .success-icon::before { content: "\2714"; }
     .success-title { font-size: 3rem; margin: 0 0 18px; color: #198754; }
@@ -21,7 +21,7 @@
     .order-summary h3 { margin: 0 0 12px; font-size: 1.35rem; color: #0f172a; }
     .order-summary p { margin: 6px 0; color: #475569; }
     .order-summary strong { color: #0f172a; }
-    .success-images { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin: 35px auto 32px; max-width: 980px; }
+    .success-images { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin: 24px auto 32px; max-width: 980px; width: 100%; }
     .success-card { width: 220px; min-height: 250px; padding: 18px; border-radius: 26px; background: linear-gradient(180deg, #fff 0%, #f8fbff 100%); border: 1px solid rgba(0,0,0,.06); box-shadow: 0 24px 48px rgba(15,23,42,.08); text-align: center; position: relative; overflow: hidden; }
     .success-card::before { content: ''; position: absolute; width: 120px; height: 120px; background: rgba(13,110,253,.08); border-radius: 50%; top: -22px; right: -28px; }
     .success-card:nth-child(1) { animation: floatCard 4s ease-in-out infinite; }
@@ -52,7 +52,13 @@
     @keyframes floatCard { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes pulseBadge { 0%,100% { transform: scale(1); } 50% { transform: scale(1.03); } }
-    @media (max-width: 576px) { .success-title { font-size: 2.4rem; } .success-card { width: 100%; } }
+    @media (max-width: 576px) {
+      .success-box { padding: 32px 16px 48px; }
+      .success-title { font-size: 2.2rem; }
+      .success-subtitle { font-size: 1rem; line-height: 1.65; }
+      .success-card { width: 100%; min-height: auto; }
+      .promo-card, .feature-item, .order-summary { border-radius: 20px; }
+    }
   </style>
 </head>
 <body>
