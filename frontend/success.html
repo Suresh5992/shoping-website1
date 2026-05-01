@@ -22,13 +22,17 @@
     .order-summary h3 { margin: 0 0 12px; font-size: 1.35rem; color: #0f172a; }
     .order-summary p { margin: 6px 0; color: #475569; }
     .order-summary strong { color: #0f172a; }
-    .success-images { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin: 24px auto 32px; max-width: 980px; width: 100%; }
-    .success-card { width: 220px; min-height: 250px; padding: 18px; border-radius: 26px; background: linear-gradient(180deg, #fff 0%, #f8fbff 100%); border: 1px solid rgba(0,0,0,.06); box-shadow: 0 24px 48px rgba(15,23,42,.08); text-align: center; position: relative; overflow: hidden; }
+    .success-images { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin: 24px auto 32px; max-width: 980px; width: 100%; perspective: 1200px; }
+    .success-card { width: 220px; min-height: 250px; padding: 18px; border-radius: 26px; background: linear-gradient(180deg, #fff 0%, #f8fbff 100%); border: 1px solid rgba(0,0,0,.06); box-shadow: 0 24px 48px rgba(15,23,42,.08); text-align: center; position: relative; overflow: hidden; transform-origin: center bottom; transition: transform .3s ease, box-shadow .3s ease; }
     .success-card::before { content: ''; position: absolute; width: 120px; height: 120px; background: rgba(13,110,253,.08); border-radius: 50%; top: -22px; right: -28px; }
-    .success-card:nth-child(1) { animation: floatCard 4s ease-in-out infinite; }
-    .success-card:nth-child(2) { animation: floatCard 4s ease-in-out infinite .2s; }
-    .success-card:nth-child(3) { animation: floatCard 4s ease-in-out infinite .4s; }
-    .success-card img { max-width: 100%; border-radius: 18px; margin-bottom: 14px; box-shadow: 0 18px 28px rgba(15,23,42,.08); }
+    .success-card::after { content: ''; position: absolute; inset: auto 18px 14px 18px; height: 16px; background: radial-gradient(circle, rgba(15,23,42,.16) 0%, rgba(15,23,42,0) 72%); filter: blur(6px); animation: shadowPulse 4.2s ease-in-out infinite; }
+    .success-card:nth-child(1) { animation: floatCardA 5.2s ease-in-out infinite; }
+    .success-card:nth-child(2) { animation: floatCardB 5.6s ease-in-out infinite; }
+    .success-card:nth-child(3) { animation: floatCardC 5s ease-in-out infinite; }
+    .success-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 30px 56px rgba(15,23,42,.14); }
+    .success-card img { max-width: 100%; border-radius: 18px; margin-bottom: 14px; box-shadow: 0 18px 28px rgba(15,23,42,.08); animation: floatImage 4.4s ease-in-out infinite; }
+    .success-card:nth-child(2) img { animation-delay: .4s; }
+    .success-card:nth-child(3) img { animation-delay: .8s; }
     .success-card p { margin: 0; font-size: 1rem; font-weight: 700; color: #0f172a; }
     .promo-section { width: 100%; max-width: 980px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 28px; }
     .promo-card { background: #fff; border-radius: 28px; padding: 28px 22px; border: 1px solid rgba(15,23,42,.08); box-shadow: 0 28px 60px rgba(15,23,42,.05); position: relative; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
@@ -52,7 +56,11 @@
     .footer-info { text-align: center; margin-top: 48px; color: #64748b; font-size: 0.95rem; }
     .footer-info strong { color: #0f172a; }
     .footer-info .badge-env { display: inline-block; background: #22c55e; color: #fff; padding: .28rem .72rem; border-radius: 999px; margin-left: .5rem; font-size: .84rem; vertical-align: middle; }
-    @keyframes floatCard { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes floatCardA { 0%,100% { transform: translate3d(0,0,0) rotate(-1deg); } 50% { transform: translate3d(0,-16px,0) rotate(1deg); } }
+    @keyframes floatCardB { 0%,100% { transform: translate3d(0,-4px,0) rotate(.8deg); } 50% { transform: translate3d(0,-20px,0) rotate(-1deg); } }
+    @keyframes floatCardC { 0%,100% { transform: translate3d(0,0,0) rotate(1deg); } 50% { transform: translate3d(0,-14px,0) rotate(-.8deg); } }
+    @keyframes floatImage { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-8px) scale(1.03); } }
+    @keyframes shadowPulse { 0%,100% { opacity: .42; transform: scale(.92); } 50% { opacity: .22; transform: scale(1.04); } }
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes pulseBadge { 0%,100% { transform: scale(1); } 50% { transform: scale(1.03); } }
     @media (max-width: 576px) {
