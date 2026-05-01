@@ -20,5 +20,6 @@ spec:
       containers:
       - name: frontend
         image: suresh628/shop-frontend:v20
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
