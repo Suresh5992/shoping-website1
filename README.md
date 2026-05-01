@@ -11,7 +11,7 @@ This repository contains the Big Store demo application with:
 
 The application stores order transactions in Postgres with fields for transaction ID, customer name, email, mobile, shipping address, product details, order total, and timestamps.
 
-## Project structure
+## Project structure 
 
 - `frontend/` — static website assets, checkout flow, order history page, and success UI
 - `backend/` — Express API server, PostgreSQL connection, OTP verification, order persistence
