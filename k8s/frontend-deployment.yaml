@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: suresh628/shop-frontend:v1
+        image: suresh628/shop-frontend:v20
         ports:
         - containerPort: 80
