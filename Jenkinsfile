@@ -134,24 +134,14 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            echo "Deployment completed successfully"
+        }
+
+        failure {
+            echo "Deployment failed"
+        }
+    }
 }
-```
-
-## Check Current Running Image Version
-
-```bash
-kubectl get deployment backend -n shopping -o=jsonpath='{.spec.template.spec.containers[0].image}'
-```
-
-```bash
-kubectl get deployment frontend -n shopping -o=jsonpath='{.spec.template.spec.containers[0].image}'
-```
-
-## Check Image Tags in Docker Hub
-
-You can view all pushed image tags in your Docker repository:
-
-* Backend: `suresh628/shop-backend`
-* Frontend: `suresh628/shop-frontend`
-
-Open Docker Hub and check the Tags section.
