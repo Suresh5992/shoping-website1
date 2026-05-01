@@ -85,6 +85,15 @@ pipeline {
                 }
             }
         }
+        
+        stage('Manual Approval') {
+    when {
+        expression { params.ACTION == 'DEPLOY' }
+    }
+    steps {
+        input message: 'Approve deployment to Kubernetes?', ok: 'Deploy Now'
+    }
+}
 
         stage('Apply Kubernetes Manifests') {
             when {
