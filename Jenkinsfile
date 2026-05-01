@@ -3,8 +3,6 @@ pipeline {
 
     parameters {
         choice(name: 'ACTION', choices: ['DEPLOY', 'ROLLBACK'], description: 'Choose action')
-        string(name: 'BACKEND_VERSION', defaultValue: 'v20', description: 'Backend version (vXX)')
-        string(name: 'FRONTEND_VERSION', defaultValue: 'v20', description: 'Frontend version (vXX)')
     }
 
     environment {
@@ -12,8 +10,8 @@ pipeline {
         REPO = "git@github.com:Suresh5992/shoping-website1.git"
         BRANCH = "master"
 
-        BACKEND_IMAGE = "suresh628/shop-backend:${params.BACKEND_VERSION}"
-        FRONTEND_IMAGE = "suresh628/shop-frontend:${params.FRONTEND_VERSION}"
+        BACKEND_IMAGE = "suresh628/shop-backend:${BUILD_NUMBER}"
+        FRONTEND_IMAGE = "suresh628/shop-frontend:${BUILD_NUMBER}"
     }
 
     stages {
@@ -78,7 +76,7 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker') {
                         sh '''
                         docker push $BACKEND_IMAGE
                         docker push $FRONTEND_IMAGE
@@ -88,10 +86,22 @@ pipeline {
             }
         }
 
-        stage('Deploy / Rollback') {
+        stage('Apply Kubernetes Manifests') {
+            when {
+                expression { params.ACTION == 'DEPLOY' }
+            }
             steps {
                 sh '''
-                echo "===== Using Versions ====="
+                kubectl apply -f k8s/frontend-deployment.yaml -n $NAMESPACE
+                kubectl apply -f k8s/backend-deployment.yaml -n $NAMESPACE
+                '''
+            }
+        }
+
+        stage('Deploy Application') {
+            steps {
+                sh '''
+                echo "===== Using Images ====="
                 echo "Backend: $BACKEND_IMAGE"
                 echo "Frontend: $FRONTEND_IMAGE"
 
@@ -125,3 +135,23 @@ pipeline {
         }
     }
 }
+```
+
+## Check Current Running Image Version
+
+```bash
+kubectl get deployment backend -n shopping -o=jsonpath='{.spec.template.spec.containers[0].image}'
+```
+
+```bash
+kubectl get deployment frontend -n shopping -o=jsonpath='{.spec.template.spec.containers[0].image}'
+```
+
+## Check Image Tags in Docker Hub
+
+You can view all pushed image tags in your Docker repository:
+
+* Backend: `suresh628/shop-backend`
+* Frontend: `suresh628/shop-frontend`
+
+Open Docker Hub and check the Tags section.
