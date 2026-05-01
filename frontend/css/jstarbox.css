@@ -2,6 +2,7 @@
 	position: relative;
 	display: inline-block;
 	line-height: 0;
+	overflow: hidden;
 }
 
 .starbox .colorbar,
@@ -15,11 +16,18 @@
 
 .starbox .stars {
 	display: inline-block;
+	position: relative;
+	width: 85px;
+	height: 17px;
+	overflow: hidden;
 }
 
 .starbox .stars .star_holder {
 	position: relative;
 	z-index: 1;
+	width: 85px;
+	height: 17px;
+	overflow: hidden;
 }
 
 .starbox .stars .star_holder .star {
@@ -37,6 +45,9 @@
 }
 .starbox{
 	float:left;
+	width: 85px;
+	height: 17px;
+	overflow: hidden;
 }
 .block span{
 	color: #A5A5A5;
