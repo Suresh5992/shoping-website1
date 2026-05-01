@@ -158,6 +158,7 @@ document.getElementById('proceedCheckout').addEventListener('click', function() 
   window.__pendingOrder = {
     id: 'ORD' + Date.now(),
     date: new Date().toISOString(),
+    status: 'Pending',
     products: JSON.parse(localStorage.getItem('cartProducts') || '[]'),
     total: total,
     shipping: { name: name, email: email, mobile: mobile, address: address }
@@ -391,5 +392,8 @@ function hideSpinner() {
 }
 </script>
 
+<script src="js/order-utils.js"></script>
+<script src="js/site-shell.js"></script>
 </body>
 </html>
+

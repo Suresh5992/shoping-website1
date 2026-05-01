@@ -156,10 +156,12 @@
     var shipping = order.shipping || {};
     var orderDate = order.date ? new Date(order.date) : null;
     var readableDate = orderDate && !isNaN(orderDate.getTime()) ? orderDate.toLocaleString() : 'Just now';
+    var status = order.status || 'Pending';
 
     summary.innerHTML =
       '<h3>Your Order Details</h3>' +
       '<p><strong>Order ID:</strong> ' + order.id + '</p>' +
+      '<p><strong>Status:</strong> ' + status + '</p>' +
       '<p><strong>Total:</strong> &#8377; ' + (order.total || 0) + '</p>' +
       '<p><strong>Items:</strong> ' + productCount + '</p>' +
       '<p><strong>Date:</strong> ' + readableDate + '</p>' +
@@ -171,5 +173,8 @@
 })();
 </script>
 
+<script src="js/order-utils.js"></script>
+<script src="js/site-shell.js"></script>
 </body>
 </html>
+

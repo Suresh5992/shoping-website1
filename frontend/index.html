@@ -1,4 +1,4 @@
-﻿<!--
+<!--
 Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -1116,24 +1116,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	</script>
 
 	<script>
-		// show logged-in state in header (demo)
-		(function(){
-			try{
-				var cur = JSON.parse(localStorage.getItem('currentUser')||'null');
-				if(cur){
-					var loginLi = document.getElementById('authLinkLogin');
-					var regLi = document.getElementById('authLinkRegister');
-					if(loginLi) loginLi.innerHTML = '<a href="#" id="showUser">Hi, '+(cur.name||cur.email)+' </a>';
-					if(regLi) regLi.innerHTML = '<a href="#" id="logoutLink">Logout</a>';
-					setTimeout(function(){
-						var l = document.getElementById('logoutLink');
-						if(l) l.addEventListener('click', function(){ localStorage.removeItem('currentUser'); location.reload(); });
-					},200);
-				}
-			}catch(e){}
-		})();
-	</script>
-	<script>
 		(function () {
 			var cards = Array.prototype.slice.call(document.querySelectorAll('.product-card'));
 			if (!cards.length) return;
@@ -2015,7 +1997,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						</div>
 					</div>
 				</div>
+<script src="js/order-utils.js"></script>
+<script src="js/site-shell.js"></script>
 </body>
 </html>
+
 
 
